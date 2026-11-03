@@ -294,6 +294,15 @@ body.contributors #search:focus{
   outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,166,107,.35);
 }
 
+/* One straight line on desktop: label | chips | search */
+@media (min-width:901px){
+  body.contributors main .filters:not(#filters){flex-wrap:nowrap;align-items:center;gap:10px}
+  body.contributors .filters > .label{flex:none;white-space:nowrap;margin:0}
+  body.contributors #filters{flex:1 1 auto;min-width:0;flex-wrap:nowrap;gap:6px;margin:0;align-items:center}
+  body.contributors #filters .chip{flex:none;white-space:nowrap;padding:6px 11px;font-size:.78rem;letter-spacing:0}
+  body.contributors #search{flex:0 0 170px;width:170px;min-width:0;margin:0 !important;padding:9px 16px}
+}
+
 /* Contributor cards */
 body.contributors #people{counter-reset:person;gap:18px}
 body.contributors #people .card,
@@ -311,7 +320,7 @@ body.contributors #people .person::before{
   font-family:var(--font-display);font-size:.85rem;font-weight:700;color:var(--gold);
 }
 body.contributors #people .card:hover,
-body.contributors #people .person:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+body.contributors #people .person:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(32,42,39,.1),0 14px 30px rgba(32,42,39,.18)}
 
 /* Round photo with a thin gold ring */
 body.contributors #people .ph{
@@ -393,3 +402,39 @@ body.viewer #book .stf__item[data-density="hard"]{padding:0;overflow:hidden}
   body.viewer #book .page,
   body.viewer #book .stf__item{padding:12px 16px}
 }
+
+/* =====================================================
+   SOFT SHADOWS (all pages except the viewer)
+   Light depth on cards, boxes, rows, chips, buttons and placeholders.
+   ===================================================== */
+:root{
+  --shadow-soft:0 1px 2px rgba(32,42,39,.08),0 4px 12px rgba(32,42,39,.08);
+  --shadow-lift:0 2px 4px rgba(32,42,39,.10),0 12px 28px rgba(32,42,39,.16);
+  --shadow-tiny:0 1px 2px rgba(32,42,39,.14);
+}
+
+/* Cards, boxes and contents rows */
+body:not(.viewer) .card,
+body:not(.viewer) .box,
+body:not(.viewer) .toc a{box-shadow:var(--shadow-soft)}
+
+/* Placeholders / images */
+body:not(.viewer) .ph{box-shadow:var(--shadow-tiny)}
+
+/* Dark acknowledgements panel */
+body:not(.viewer) .dark{box-shadow:0 6px 18px rgba(0,0,0,.28)}
+
+/* Chips and buttons: tiny lift */
+body:not(.viewer) .chip,
+body:not(.viewer) .btn{box-shadow:var(--shadow-tiny)}
+body:not(.viewer) main>.section:first-child .btn:not(.primary){box-shadow:none}
+
+/* Cards that sit on the dark top band need a stronger shadow to show */
+body:not(.viewer) main>.section:first-child .card,
+body:not(.viewer) main>.section:first-child .box{box-shadow:0 4px 16px rgba(0,0,0,.3)}
+
+/* Hover: a bit more lift */
+body:not(.viewer) a.card:hover,
+body:not(.viewer) .toc a:hover{box-shadow:var(--shadow-lift)}
+body:not(.viewer) .btn:hover,
+body:not(.viewer) .chip:hover{box-shadow:0 2px 6px rgba(32,42,39,.22)}
