@@ -13,7 +13,8 @@ const PAGE_HTML = {
             ${MAGAZINE.course} · ${MAGAZINE.instructor} · ${MAGAZINE.year}
         </p>
     `,
-    // 2: `...`, 3: `...`, 4: `...`
+    14: THEN_NOW.left,
+    15: THEN_NOW.right,
 };
 
 const sectionOf = (p) => SECTIONS.find((s) => p >= s.start && p <= s.end);

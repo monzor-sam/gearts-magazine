@@ -1,0 +1,96 @@
+/* =====================================================
+   THEN & NOW (flipbook pages 14-15)
+   Everything is sized in cqw (1% of the page width), so the layout
+   scales with the page and with the viewer's zoom buttons.
+   Selectors start with "body.viewer #book .page .tn" so they win over
+   the generic page text rules in style.css.
+   ===================================================== */
+
+/* The site's default page padding stops growing at 64px, which would make these pages
+   overflow on big screens / high zoom. So these two pages take over their own padding,
+   in units of the page width (same look as the default at normal sizes, but it always scales). */
+body.viewer #book .page:has(> .tn),
+body.viewer #book .stf__item:has(> .tn){padding:0;overflow:hidden}
+body.viewer #book .page > .tn{
+  container-type:inline-size;box-sizing:border-box;height:100%;
+  padding:6.13cqw 12.26cqw;
+}
+
+body.viewer #book .page .tn{
+  --tn-fs:2.9cqw;
+  font-size:var(--tn-fs);line-height:1.38;color:var(--ink);
+}
+body.viewer #book .page .tn p{font-size:var(--tn-fs);line-height:1.38;margin:0 0 .5em}
+body.viewer #book .page .tn .label{font-size:2.1cqw;letter-spacing:.16em;margin:0 0 1.2cqw;color:#7a7f68}
+
+/* Title block (page 14) */
+body.viewer #book .page .tn-title{
+  font-family:var(--font-display);font-size:10.5cqw;line-height:1;letter-spacing:-.02em;
+  margin:0 0 2.4cqw;padding-bottom:2.2cqw;position:relative;
+}
+body.viewer #book .page .tn-title::after{
+  content:"";position:absolute;left:0;bottom:0;width:12cqw;height:.7cqw;background:var(--gold);
+}
+body.viewer #book .page .tn p.tn-deck{
+  font-family:var(--font-display);font-style:italic;font-size:3.4cqw;line-height:1.3;
+  color:#3b4741;margin:0 0 3cqw;
+}
+
+/* Side-by-side images: equal height, widths follow each image's shape */
+body.viewer #book .page .tn-pair{display:flex;gap:2.4cqw;margin:0 0 3cqw;align-items:flex-start}
+body.viewer #book .page .tn-pair figure{margin:0;min-width:0}
+body.viewer #book .page .tn-then{flex:.68 1 0}
+body.viewer #book .page .tn-now{flex:1.5 1 0}
+body.viewer #book .page .tn-frame{position:relative;border:.5cqw solid var(--cream);box-shadow:0 1px 2px rgba(32,42,39,.25),0 1.2cqw 2.4cqw rgba(32,42,39,.22);background:#ddd}
+body.viewer #book .page .tn img{display:block;width:100%;height:auto;max-height:none;object-fit:cover}
+body.viewer #book .page .tn-tag{
+  position:absolute;top:1.4cqw;left:1.4cqw;background:var(--forest);color:var(--cream);
+  font-family:var(--font-display);font-size:2cqw;letter-spacing:.14em;text-transform:uppercase;
+  padding:.5cqw 1.6cqw;border-radius:99px;
+}
+body.viewer #book .page .tn-now .tn-tag{background:var(--gold);color:var(--forest)}
+body.viewer #book .page .tn figcaption{font-size:2.2cqw;line-height:1.3;margin-top:1.4cqw;color:var(--muted)}
+body.viewer #book .page .tn figcaption b{font-family:var(--font-display);color:var(--ink);font-style:italic}
+
+/* Comparison table */
+body.viewer #book .page .tn-table{
+  width:100%;border-collapse:collapse;table-layout:fixed;font-size:2.45cqw;line-height:1.32;
+  border:1px solid var(--line);background:#fff;
+}
+body.viewer #book .page .tn-table th,
+body.viewer #book .page .tn-table td{
+  border:1px solid var(--line);padding:1.3cqw 1.6cqw;vertical-align:top;text-align:left;
+  overflow-wrap:break-word;hyphens:auto;
+}
+body.viewer #book .page .tn-table thead th{
+  background:var(--forest);color:var(--cream);font-family:var(--font-display);font-size:2.4cqw;
+  font-weight:700;line-height:1.2;border-color:#34423d;border-bottom:.6cqw solid var(--gold);
+}
+body.viewer #book .page .tn-table thead th span{
+  display:block;margin-top:.5cqw;font-family:var(--font-body);font-weight:400;font-style:italic;
+  font-size:2cqw;color:var(--sage);
+}
+body.viewer #book .page .tn-table th.tn-aspect{width:19%}
+body.viewer #book .page .tn-table tbody th{
+  background:var(--cream);color:var(--forest);font-family:var(--font-display);font-size:2.4cqw;font-weight:700;
+}
+body.viewer #book .page .tn-table tbody tr:nth-child(even) td{background:#FBF8F1}
+body.viewer #book .page .tn-table tr.tn-merge td{background:var(--accent-soft)}
+
+body.viewer #book .page .tn p.tn-credit{
+  font-size:1.9cqw;line-height:1.3;color:var(--muted);margin:2.2cqw 0 0;
+}
+
+/* Analysis box (page 15) */
+body.viewer #book .page .tn-analysis{
+  margin-top:3cqw;padding:2.6cqw 3cqw;background:var(--cream);border-left:.9cqw solid var(--gold);border-radius:0 1cqw 1cqw 0;
+}
+body.viewer #book .page .tn-analysis h3{
+  font-family:var(--font-display);font-size:4cqw;line-height:1.15;margin:0 0 1.4cqw;
+}
+body.viewer #book .page .tn-analysis p{font-size:2.5cqw;line-height:1.36;margin:0 0 .9cqw}
+body.viewer #book .page .tn-analysis p b{font-family:var(--font-display);color:var(--forest)}
+body.viewer #book .page .tn-analysis p.tn-close{
+  margin:1.4cqw 0 0;padding-top:1.2cqw;border-top:1px solid rgba(32,42,39,.2);
+  font-family:var(--font-display);font-style:italic;font-size:2.7cqw;
+}

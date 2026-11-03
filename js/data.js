@@ -139,7 +139,7 @@ const CONTRIBUTORS = [
   },
   { id: 20, 
     name: "UNIGO, PAUL BENEDICT GONZALES", 
-    role: "[ROLE]", 
+    role: "Then & Now", 
     photo: "", 
     pages: [] 
   },
@@ -150,4 +150,10 @@ const REFERENCES = [
   { type: "books",    text: "Author. (Year). Title. Publisher." },
   { type: "websites", text: "Museum / collection name", url: "https://example.com" },
   { type: "images",   text: "[Artwork title], [Artist]", page: 4, license: "Public domain" },
+
+  // Then & Now (pages 14–15)
+  { type: "images",   text: "Mona Lisa, Leonardo da Vinci (c. 1503–1506)", page: 14, license: "Public domain" },
+  { type: "images",   text: "Dropping a Han Dynasty Urn, Ai Weiwei (1995)", page: 14, license: "© Ai Weiwei, courtesy Ai Weiwei Studio" },
+  { type: "websites", text: "Guggenheim Bilbao. Ai Weiwei: Dropping a Han Dynasty Urn, 1995 (teacher's guide)", url: "https://guggenheim-bilbao.eus/en/learn/schools/teachers-guides/ai-weiwei-dropping-han-dynasty-urn-1995" },
+  { type: "websites", text: "QAGOMA. Unpack the art speak behind contemporary art", url: "https://www.qagoma.qld.gov.au/stories/unpack-the-art-speak-behind-contemporary-art-confronting-contemporary-art" },
 ];
