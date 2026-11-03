@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <title>The Magazine</title>
+</head>
+<body>
+  <div id="site-header"></div>
+
+    <main>
+      <section class="section">
+        <div class="wrap hero" style="grid-template-columns: 1fr 1.6fr;">
+
+          <a href="viewer.html">
+            <div class="ph">Issue cover</div>
+          </a>
+
+          <div>
+            <p class="label">The magazine · 2026-2027</p>
+            <h1 data-title></h1>
+
+            <h2 style="font-size: 1.3rem;">
+              Art Through Time: From History to Contemporary Expression
+            </h2>
+
+            <p>
+              <span class="chip">19 pages</span>
+              <span class="chip">4 art periods</span>
+              <span class="chip">5 original artworks</span>
+              <span class="chip">20 contributors</span>
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="viewer.html">Start reading</a>
+              <a class="btn" href="#toc">Jump to contents</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="wrap">
+          <p class="label">Table of contents</p>
+          <h2>What's inside</h2>
+          <div class="toc" id="toc"></div>
+        </div>
+      </section>
+    </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
