@@ -13,6 +13,45 @@ const PAGE_HTML = {
             ${MAGAZINE.course} · ${MAGAZINE.instructor} · ${MAGAZINE.year}
         </p>
     `,
+    10: `
+        <article class="behind-smile">
+            <p class="bs-kicker">Art Through History <span>·</span> 10</p>
+            <h3 class="bs-title">Behind the Smile</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_7.png" alt="Behind the Smile artwork">
+                <figcaption>What we show · What we feel</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p>This artwork shows the gap between what people display outside and what they feel inside. Inspired by Modern Art’s abstract forms, expressive colors, and emotional symbolism, we combined an anime-inspired portrait with a dark, chaotic background of tangled red lines. Instead of showing sadness in the face, we let the background reveal the hidden struggles of overthinking and social pressure. We want viewers to remember that not everyone who smiles is happy, so we should always be kind and understanding.</p>
+            </div>
+        </article>
+    `,
+    11: `
+        <article class="behind-smile">
+            <p class="bs-kicker">Art Through History <span>·</span> 11</p>
+            <h3 class="bs-title">Between Books and Screens</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_8.jpg" alt="Between Books and Screens artwork">
+                <figcaption>Study · Technology · Everyday life</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p>This artwork shows the daily life of a modern student balancing studies, technology, and other responsibilities. Inspired by Fernando Amorsolo’s paintings of everyday Filipino life, we reinterpreted those ordinary scenes in a modern setting by adding a laptop, smartphone, books, and social media icons. It represents how students today rely on technology for learning and communication while dealing with schoolwork, distractions, and deadlines. We want viewers to understand that being a student is not always easy, and that we need to manage our time, stay focused, and balance technology with our studies.</p>
+            </div>
+        </article>
+    `,
+    13: `
+        <article class="behind-smile">
+            <p class="bs-kicker">Contemporary Art <span>·</span> 13</p>
+            <h3 class="bs-title">Life and Death</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_10.jpg" alt="Artwork combining a human face and a skull">
+                <figcaption>Life · Change · Mortality</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p>This artwork shows the two sides of human existence: life and death. One half is a human face representing life, beauty, and identity, while the other half is a skull representing the reality that life does not last forever. Inspired by the Renaissance study of human anatomy by artists like Leonardo da Vinci, we reinterpreted it by combining both into one face to show the contrast. It reflects how everyone experiences aging, change, and eventually death, and how people can focus too much on appearance. We want viewers to remember that life is temporary, so we should appreciate it and value who we are, not just how we look.</p>
+            </div>
+        </article>
+    `,
     14: THEN_NOW.left,
     15: THEN_NOW.right,
 };
