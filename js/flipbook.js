@@ -7,7 +7,7 @@ const PAGE_HTML = {
         <p class="label">Magazine portfolio</p>
         <h1 style="font-size: 2.4rem;">${MAGAZINE.title}</h1>
         <p><em>${MAGAZINE.subtitle}</em></p>
-        ${ph("", "Cover art: split image (Then | Now)", "wide")}
+<img src="images/cover.jpg" alt="Cover art" style="width:100%; border-radius:8px;">
         <p>
             <strong>[STUDENT NAME(S)]</strong><br>
             ${MAGAZINE.course} · ${MAGAZINE.instructor} · ${MAGAZINE.year}
