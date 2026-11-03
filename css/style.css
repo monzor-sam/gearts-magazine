@@ -438,3 +438,35 @@ body:not(.viewer) a.card:hover,
 body:not(.viewer) .toc a:hover{box-shadow:var(--shadow-lift)}
 body:not(.viewer) .btn:hover,
 body:not(.viewer) .chip:hover{box-shadow:0 2px 6px rgba(32,42,39,.22)}
+
+/* =====================================================
+   EXTRA POLISH: fade-in, footer rule, featured accent
+   ===================================================== */
+
+/* Sections fade up gently on page load */
+@keyframes rise{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:none}
+}
+body:not(.viewer) main > .section{animation:rise .6s ease both}
+body:not(.viewer) main > .section:nth-child(2){animation-delay:.1s}
+body:not(.viewer) main > .section:nth-child(3){animation-delay:.2s}
+
+/* Thin gold rule on top of the footer */
+.site-footer{border-top:3px solid var(--gold)}
+
+/* Nav links: gold underline grows on hover */
+.nav a:not(.btn):hover{border-color:var(--gold)}
+
+/* Featured "Then & Now" block on the home page */
+body.home main > .section:nth-child(3) .hero > div{
+  border-left:3px solid var(--gold);padding-left:20px;
+}
+
+/* Buttons feel more tactile */
+body:not(.viewer) .btn.primary:hover{transform:translateY(-1px)}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion:reduce){
+  body:not(.viewer) main > .section{animation:none}
+}
