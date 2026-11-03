@@ -209,3 +209,187 @@ body.viewer{background:#19211f}
   .site-footer{padding:24px 0}
   h1{margin-bottom:.35em}
 }
+
+/* =====================================================
+   SHARED MAGAZINE TOUCHES
+   Applies to: contributors, home, magazine, references
+   ===================================================== */
+
+/* Masthead label: gold rule on top, spaced capitals */
+body:is(.contributors,.home,.magazine,.references) main > .section:first-child .wrap > .label:first-child,
+body:is(.contributors,.home,.magazine,.references) main > .section:first-child .hero > div > .label:first-child{
+  display:inline-block;padding-top:12px;border-top:3px solid var(--gold);
+  letter-spacing:.18em;font-weight:600;margin-bottom:14px;
+}
+
+/* Big page title */
+body:is(.contributors,.home,.magazine,.references) main > .section:first-child h1{
+  font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:700;line-height:1.02;
+  letter-spacing:-.02em;margin-bottom:.3em;
+}
+
+/* Small gold bar under section headings further down the page */
+body:is(.home,.magazine) .section:not(:first-child) h2::after{
+  content:"";display:block;width:48px;height:3px;background:var(--gold);margin-top:10px;
+}
+
+/* Magazine cover look for the cover preview image */
+body:is(.home,.magazine) .hero > a{justify-self:center;width:100%;max-width:340px}
+body:is(.home,.magazine) .hero > a .ph{
+  border:6px solid var(--cream);border-radius:3px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);transition:transform .3s;
+}
+body:is(.home,.magazine) .hero > a:hover .ph{transform:rotate(-1.5deg) translateY(-4px)}
+
+/* Subtitle in the hero looks like a standfirst */
+body:is(.home,.magazine) main > .section:first-child .hero h2{
+  font-style:italic;font-weight:400;color:var(--cream);
+}
+
+/* =====================================================
+   HOME (index.html)
+   ===================================================== */
+body.home .cards{counter-reset:issue;gap:18px}
+body.home a.card{position:relative;counter-increment:issue}
+body.home a.card::before{
+  content:counter(issue,decimal-leading-zero);position:absolute;top:20px;left:20px;z-index:1;
+  background:var(--cream);color:var(--forest);font-family:var(--font-display);
+  font-weight:700;font-size:.8rem;padding:2px 10px;border-radius:99px;
+}
+body.home a.card strong{display:block;font-family:var(--font-display);font-size:1.1rem;line-height:1.25}
+body.home .hero > .ph.wide{border:1px solid var(--line);box-shadow:var(--shadow)}
+body.home .grid2 .box{border-left:3px solid var(--gold)}
+body.home .grid2 .box strong{font-family:var(--font-display);font-size:1.1rem;line-height:1.3}
+
+/* =====================================================
+   MAGAZINE (magazine.html)
+   ===================================================== */
+body.magazine .hero > a{max-width:300px}
+body.magazine .hero p .chip{margin:0 6px 8px 0;font-size:.8rem;padding:4px 14px}
+body.magazine .toc{gap:14px}
+body.magazine .toc a{
+  border-left:3px solid var(--sage);font-family:var(--font-display);font-size:1.05rem;
+}
+body.magazine .toc a:nth-child(even){border-left-color:var(--gold)}
+body.magazine .toc a:hover{transform:translateX(3px)}
+
+/* =====================================================
+   CONTRIBUTORS (contributors.html)
+   ===================================================== */
+body.contributors main h1 + p{
+  margin:0 0 24px;padding-bottom:20px;
+  border-bottom:3px double rgba(157,173,153,.55);opacity:.9;
+}
+
+/* Filters and search */
+body.contributors .filters{gap:10px;margin:8px 0 28px}
+body.contributors .filters > .label{margin:0 6px 0 0;letter-spacing:.14em;font-weight:600}
+body.contributors #filters .chip{padding:6px 16px;font-size:.82rem;letter-spacing:.02em}
+body.contributors #filters .chip:hover{transform:translateY(-1px)}
+body.contributors #search{
+  padding:10px 18px;border-color:#6b7d75;background:var(--surface);color:var(--ink);
+  transition:border-color .2s,box-shadow .2s;
+}
+body.contributors #search:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,166,107,.35);
+}
+
+/* Contributor cards */
+body.contributors #people{counter-reset:person;gap:18px}
+body.contributors #people .card,
+body.contributors #people .person{
+  position:relative;counter-increment:person;border-top:3px solid var(--sage);
+  padding:24px 14px 20px;text-align:center;overflow:hidden;
+}
+body.contributors #people .card:nth-child(even),
+body.contributors #people .person:nth-child(even){border-top-color:var(--gold)}
+
+/* Issue-style number in the corner */
+body.contributors #people .card::before,
+body.contributors #people .person::before{
+  content:counter(person,decimal-leading-zero);position:absolute;top:10px;right:12px;
+  font-family:var(--font-display);font-size:.85rem;font-weight:700;color:var(--gold);
+}
+body.contributors #people .card:hover,
+body.contributors #people .person:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+
+/* Round photo with a thin gold ring */
+body.contributors #people .ph{
+  width:96px;aspect-ratio:1;border-radius:50%;margin:0 auto 14px;border:2px solid var(--gold);
+}
+
+/* Names look like a magazine byline */
+body.contributors #people strong,
+body.contributors #people h3,
+body.contributors #people h4{
+  display:block;font-family:var(--font-display);font-size:1.02rem;font-weight:700;
+  line-height:1.25;text-wrap:balance;
+}
+body.contributors #people .label{margin:6px 0 0;font-size:.7rem;letter-spacing:.14em}
+body.contributors #people .chips{margin-top:10px}
+
+@media (max-width:700px){
+  body.contributors #people{grid-template-columns:repeat(2,1fr);gap:12px}
+  body.contributors #people .ph{width:76px}
+  body.contributors #people strong,
+  body.contributors #people h3,
+  body.contributors #people h4{font-size:.92rem}
+}
+
+/* =====================================================
+   REFERENCES (references.html)
+   ===================================================== */
+body.references #ref-filters{gap:10px;margin:8px 0 20px}
+body.references #ref-filters .label{margin:0 6px 0 0;letter-spacing:.14em;font-weight:600}
+body.references #ref-filters .chip{padding:6px 16px;font-size:.82rem}
+body.references #ref-filters .chip:hover{transform:translateY(-1px)}
+
+/* Reference list */
+body.references #refs{margin:0;padding-left:1.6em}
+body.references #refs li{
+  padding:12px 0 12px .4em;border-bottom:1px dotted var(--line);line-height:1.5;
+}
+body.references #refs li:last-child{border-bottom:0}
+body.references #refs li::marker{color:var(--gold);font-family:var(--font-display);font-weight:700}
+body.references #refs a{text-underline-offset:3px}
+
+/* Acknowledgements column */
+body.references #thanks .dark h2{font-style:italic;font-weight:400}
+body.references #thanks .box ul{list-style:none;margin:0;padding:0}
+body.references #thanks .box li{padding:8px 0;border-bottom:1px dotted var(--line)}
+body.references #thanks .box li:last-child{border-bottom:0}
+body.references #thanks .box li::before{content:"— ";color:var(--gold);font-weight:700}
+body.references #thanks .box:last-of-type{border-left:3px solid var(--gold)}
+body.references #thanks .box:last-of-type p:last-child{font-family:var(--font-display);font-style:italic}
+
+/* =====================================================
+   VIEWER (viewer.html): text margin inside the pages
+   ===================================================== */
+body.viewer #book .page,
+body.viewer #book .stf__item{
+  box-sizing:border-box;
+  padding:clamp(14px,3%,28px) clamp(24px,6%,64px);
+  overflow-x:hidden;overflow-y:auto;scrollbar-width:thin;
+}
+body.viewer #book .page p,
+body.viewer #book .page li{
+  font-size:clamp(.78rem,1.1vw,.95rem);line-height:1.45;margin:0 0 .6em;
+  max-width:100%;overflow-wrap:break-word;
+}
+body.viewer #book .page h1{font-size:clamp(1.3rem,2.4vw,2rem);margin:0 0 .4em}
+body.viewer #book .page h2{font-size:clamp(1.05rem,1.8vw,1.5rem);margin:0 0 .4em}
+body.viewer #book .page h3{font-size:clamp(.9rem,1.4vw,1.15rem);margin:0 0 .4em}
+body.viewer #book .page h1,
+body.viewer #book .page h2,
+body.viewer #book .page h3{max-width:100%;overflow-wrap:break-word}
+body.viewer #book .page .label{font-size:.7rem;margin:0 0 .5em}
+body.viewer #book .page .ph{aspect-ratio:4/3;margin-bottom:.8em}
+body.viewer #book .page .ph.wide{aspect-ratio:16/9}
+body.viewer #book .page img{max-width:100%;height:auto;max-height:55%;object-fit:contain}
+body.viewer #book .page.full-bleed,
+body.viewer #book .stf__item.full-bleed,
+body.viewer #book .stf__item[data-density="hard"]{padding:0;overflow:hidden}
+@media (max-width:640px){
+  body.viewer #book .page,
+  body.viewer #book .stf__item{padding:12px 16px}
+}
