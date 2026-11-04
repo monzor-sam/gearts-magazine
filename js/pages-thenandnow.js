@@ -18,7 +18,7 @@ const THEN_NOW = {
   // ---------- PAGE 14 ----------
   left: `
   <div class="tn">
-    <p class="label">14 · Then &amp; Now</p>
+    <p class="bs-kicker">Then &amp; Now <span>·</span> 14</p>
     <h2 class="tn-title">Then &amp; Now</h2>
     <p class="tn-deck">Five centuries apart, two artists ask what makes a work, or an object, worth keeping.</p>
 
@@ -66,7 +66,7 @@ const THEN_NOW = {
   // ---------- PAGE 15 ----------
   right: `
   <div class="tn">
-    <p class="label">15 · Then &amp; Now</p>
+    <p class="bs-kicker">Then &amp; Now <span>·</span> 15</p>
 
     <table class="tn-table">
       ${TN_HEAD()}
