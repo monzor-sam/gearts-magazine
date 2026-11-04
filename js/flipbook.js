@@ -4,14 +4,13 @@
 // 1) PAGE CONTENT. Put real HTML for any page here. Pages not listed get a placeholder.
 const PAGE_HTML = {
     1: `
-        <p class="label">Magazine portfolio</p>
-        <h1 style="font-size: 2.4rem;">${MAGAZINE.title}</h1>
-        <p><em>${MAGAZINE.subtitle}</em></p>
-<img src="images/cover.jpg" alt="Cover art" style="width:100%; border-radius:8px;">
-        <p>
-            <strong>[STUDENT NAME(S)]</strong><br>
-            ${MAGAZINE.course} · ${MAGAZINE.instructor} · ${MAGAZINE.year}
-        </p>
+        <div style="position:absolute;inset:0;overflow:hidden">
+            <img src="images/magazinecover.png" alt="Art Through Time cover" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;border-radius:0">
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:12cqw 7cqw 5cqw;color:#fff;font:3.2cqw/1.4 system-ui,sans-serif;background:linear-gradient(to top,rgba(32,42,39,.85),transparent)">
+                <strong style="font-size:3.8cqw">CLASS OF ${MAGAZINE.course}</strong><br>
+                Batch ${MAGAZINE.year} · ${MAGAZINE.instructor}
+            </div>
+        </div>
     `,
     2: `
         <article class="mag-page toc-page">
@@ -29,14 +28,15 @@ const PAGE_HTML = {
                 </div>
                 <div class="toc-sub"><span>—</span><b>Greek and Roman Art</b><i></i><strong>04–05</strong></div>
                 <div class="toc-sub"><span>—</span><b>Philippine Art History</b><i></i><strong>06–07</strong></div>
-                <div class="toc-sub"><span>—</span><b>Additional Historical Topics</b><i></i><strong>08–11</strong></div>
+                <div class="toc-sub"><span>—</span><b>Modern Art</b><i></i><strong>08–09</strong></div>
+                <div class="toc-sub"><span>—</span><b>Baroque Art</b><i></i><strong>10–11</strong></div>
 
                 <div><span>05</span><b>Contemporary Art</b><i></i><strong>12–13</strong></div>
                 <div><span>06</span><b>Then &amp; Now</b><i></i><strong>14–15</strong></div>
-                <div><span>07</span><b>My Art, My Time</b><i></i><strong>16</strong></div>
-                <div><span>08</span><b>Artist's Statement</b><i></i><strong>17</strong></div>
-                <div><span>09</span><b>Reflection</b><i></i><strong>18</strong></div>
-                <div><span>10</span><b>Back Cover</b><i></i><strong>19</strong></div>
+                <div><span>07</span><b>My Art, My Time</b><i></i><strong>16–17</strong></div>
+                <div><span>08</span><b>Artists' Statement</b><i></i><strong>18</strong></div>
+                <div><span>09</span><b>Reflection</b><i></i><strong>19</strong></div>
+                <div><span>10</span><b>Back Cover</b><i></i><strong>20</strong></div>
             </div>
 
             <div class="mag-footnote"></div>
@@ -743,6 +743,7 @@ const PAGE_HTML = {
                 target="_blank" rel="noopener noreferrer">National Gallery – Baroque</a>.
                 <br>
                 Images: The Crowning with Thorns via Smarthistory; The Calling of Saint Matthew and Caravaggio portrait via Wikipedia; Gian Lorenzo Bernini portrait via Wikipedia; The Ecstasy of Saint Teresa via Artble. Used for educational purposes.
+            </div>
         </article>
     `,
     11: `
@@ -762,55 +763,164 @@ const PAGE_HTML = {
             <h3>Artwork Details</h3>
             <p><b>Artists:</b> Ilagan, Adrian Yuri & Laya, Drei Matthew</p>
             <p><b>Title:</b> The Crown of Strength</p>
-            <p><b>Medium:</b> [Artwork medium]</p>
+            <p><b>Medium:</b> Colored pencil on paper</p>
             <p><b>Historical Inspiration:</b> Baroque Art</p>
 
             <p>
                 <b>Description:</b>
                 This artwork represents strength, hope, and personal growth through symbols such as a golden crown, classical column, radiant sun, flowing red fabric, and laurel branch. Inspired by the Baroque period's dramatic lighting, rich colors, strong contrasts, and movement, it reinterprets traditional artistic characteristics through meaningful imagery. The composition reflects the struggles and pressures people face while pursuing their dreams, emphasizing self-worth, courage, and perseverance. Ultimately, it reminds viewers that true strength comes not from achieving success easily, but from overcoming challenges, learning from setbacks, and becoming stronger along the way.
             </p>
+            
+            <div class="mag-footnote">
+            Artwork courtesy of the student artists. Used for educational purposes.
+            </div>
+            </article>
+            `,
+    12:`
+        <article class="mag-page history-page">
+            <p class="bs-kicker">CONTEMPORARY ART <span>·</span> 12</p>
+            <p class="mag-kicker"></p>
+
+            <h2 class="mag-heading">Ai Weiwei</h2>
+            <p class="mag-deck">Questioning tradition, cultural value, and authority.</p>
+
+            <div class="history-scroll">
+                <div class="history-image-placeholder">
+                    <img src="images/contemporary/ai-weiwei.jpg"
+                        alt="Ai Weiwei">
+                    <figcaption>
+                        Ai Weiwei (born 1957), a Chinese contemporary artist and activist.
+                    </figcaption>
+                </div>
+
+                <h3>A. Artist and Artwork</h3>
+                <div class="history-image-placeholder">
+                    <img src="images/contemporary/dropping-urn.jpg"
+                        alt="Dropping a Han Dynasty Urn by Ai Weiwei">
+                </div>
+                <p class="meta-line"><b>Artist:</b> Ai Weiwei</p>
+                <p class="meta-line"><b>Artwork:</b> <i>Dropping a Han Dynasty Urn</i></p>
+                <p class="meta-line"><b>Date:</b> 1995</p>
+                <p class="meta-line"><b>Medium:</b> Three black-and-white gelatin silver photographs documenting a performance.</p>
+
+                <h3>B. Artistic Style and Practice</h3>
+                <p>
+                    Ai Weiwei combines conceptual art, photography, and performance
+                    to question accepted beliefs and cultural values. In this work,
+                    three photographs record the artist dropping and breaking an
+                    ancient Chinese urn. Rather than creating a traditional
+                    painting or sculpture, he uses a real object and a documented
+                    action to communicate an idea.
+                </p>
+
+                <h3>C. Concept and Message</h3>
+                <p>
+                    The artwork questions how society assigns value to historical
+                    objects and traditions. The urn represents China's cultural
+                    heritage, while its destruction challenges the belief that
+                    valuable objects must always be preserved. The work encourages
+                    viewers to consider the relationship between history,
+                    cultural identity, and the creation of new ideas.
+                </p>
+
+                <h3>D. Social and Cultural Context</h3>
+                <p>
+                    Created after Ai returned to China from the United States,
+                    the artwork reflects debates about tradition, cultural
+                    identity, and the meaning of heritage. It also recalls the
+                    destruction of historical objects during China's Cultural
+                    Revolution (1966–1976). The work provoked controversy because
+                    some viewers saw the act as disrespectful, while others
+                    interpreted it as a challenge to established authority
+                    and cultural values.
+                </p>
+
+                <h3>E. Contemporary Issue Represented</h3>
+                <p>
+                    The artwork raises questions about cultural preservation,
+                    the destruction of heritage, and who has the power to decide
+                    what deserves protection. It challenges viewers to consider
+                    whether traditions should be preserved unquestioningly
+                    or reconsidered as society changes.
+                </p>
+
+                <h3>F. Connection Between Historical and Contemporary Art</h3>
+                <p>
+                    Historically, art often preserved religious beliefs,
+                    celebrated rulers, and commemorated important events.
+                    Ai Weiwei reinterprets this relationship by turning an
+                    ancient cultural object into a contemporary statement.
+                    Instead of simply preserving the past through an artwork,
+                    he questions its meaning and value. This demonstrates how
+                    contemporary art expands artistic practice from traditional
+                    representation to conceptual ideas, performance, and
+                    social criticism.
+                </p>
+            </div>
 
             <div class="mag-footnote">
-                Artwork courtesy of the student artists. Used for educational purposes.
+                Content Sources:
+                <a href="https://smarthistory.org/ai-weiwei-dropping-a-han-dynasty-urn/"
+                target="_blank" rel="noopener noreferrer">Smarthistory – Ai Weiwei, Dropping a Han Dynasty Urn</a>;
+                <a href="https://www.guggenheim.org/teaching-materials/art-and-china-after-1989-theater-of-the-world/ai-weiwei"
+                target="_blank" rel="noopener noreferrer">Guggenheim – Ai Weiwei</a>.
+                <br>
+                Image: Dropping a Han Dynasty Urn, courtesy of Ai Weiwei Studio; image reference via Smarthistory. Used for educational purposes.
             </div>
         </article>
     `,
-    12: `
-        <article class="behind-smile">
-            <p class="bs-kicker">Art Through History <span>·</span> 12</p>
-            <h3 class="bs-title">Between Books and Screens</h3>
-            <figure class="bs-art">
-                <img src="images/contemporary/contemporary_8.jpg" alt="Between Books and Screens artwork">
-                <figcaption>Study · Technology · Everyday life</figcaption>
-            </figure>
-            <div class="bs-caption">
-                <p>This artwork shows the daily life of a modern student balancing studies, technology, and other responsibilities. Inspired by Fernando Amorsolo’s paintings of everyday Filipino life, we reinterpreted those ordinary scenes in a modern setting by adding a laptop, smartphone, books, and social media icons. It represents how students today rely on technology for learning and communication while dealing with schoolwork, distractions, and deadlines. We want viewers to understand that being a student is not always easy, and that we need to manage our time, stay focused, and balance technology with our studies.</p>
-            </div>
-        </article>
-    `,
-    12: `
-        <article class="behind-smile">
-            <p class="bs-kicker">Contemporary Art <span>·</span> 12</p>
-            <h3 class="bs-title">Rooted, Yet Connected</h3>
-            <figure class="bs-art">
-                <img src="images/contemporary/contemporary_9.jpg" alt="Filipino woman in traditional clothing holding a smartphone in a rice field">
-                <figcaption>Tradition · Identity · Progress</figcaption>
-            </figure>
-            <div class="bs-caption">
-                <p>This artwork shows a Filipino in a salakot and patadyong standing in a rice field, holding a smartphone, with a coconut tree, a nipa hut, and a distant city skyline behind her. Inspired by Fernando Amorsolo’s rural landscapes, we borrowed his warm golden palette and glowing sun, then reinterpreted his timeless countryside by adding a glowing phone and making her the center of the scene. The phone stands out against the warm colors to show technology entering traditional spaces. It represents Filipino identity in an age of globalization, where we stay tied to our land while living in a connected world.</p>
-            </div>
-        </article>
-    `,
-    13: `
-        <article class="behind-smile">
-            <p class="bs-kicker">Contemporary Art <span>·</span> 13</p>
-            <h3 class="bs-title">Life and Death</h3>
-            <figure class="bs-art">
-                <img src="images/contemporary/contemporary_10.jpg" alt="Artwork combining a human face and a skull">
-                <figcaption>Life · Change · Mortality</figcaption>
-            </figure>
-            <div class="bs-caption">
-                <p>This artwork shows the two sides of human existence: life and death. One half is a human face representing life, beauty, and identity, while the other half is a skull representing the reality that life does not last forever. Inspired by the Renaissance study of human anatomy by artists like Leonardo da Vinci, we reinterpreted it by combining both into one face to show the contrast. It reflects how everyone experiences aging, change, and eventually death, and how people can focus too much on appearance. We want viewers to remember that life is temporary, so we should appreciate it and value who we are, not just how we look.</p>
+    13:`
+        <article class="mag-page history-page">
+            <p class="bs-kicker">CONTEMPORARY ART <span>·</span> 13</p>
+            <p class="mag-kicker"></p>
+
+            <h2 class="mag-heading">Leeroy New</h2>
+            <p class="mag-deck">Reimagining Filipino mythology through contemporary installation art.</p>
+
+            <div class="history-scroll">
+                <div class="history-image-placeholder">
+                    <img src="images/contemporary/leeroy-new.jpg"
+                        alt="Leeroy New">
+                    <small>Leeroy New (born 1986), a Filipino multidisciplinary artist.</small>
+                </div>
+
+                <h3>A. Artist and Artwork</h3>
+                <div class="history-image-placeholder">
+                    <img src="images/contemporary/mebuyan-colony.jpg"
+                        alt="Mebuyan's Colony, an immersive installation by Leeroy New">
+                </div>
+                <p class="meta-line"><b>Artist:</b> Leeroy New</p>
+                <p class="meta-line"><b>Artwork:</b> <i>Mebuyan's Colony</i></p>
+                <p class="meta-line"><b>Date:</b> First realized in 2021; developed through later installations</p>
+                <p class="meta-line"><b>Medium:</b> Installation using bamboo, steel, salvaged plastic bottles, and household materials</p>
+
+                <h3>B. Artistic Style and Practice</h3>
+                <p>Leeroy New is a Filipino multidisciplinary artist whose practice combines sculpture, installation, design, performance, and elements of science fiction. In <i>Mebuyan's Colony</i>, he assembles spheres and other fantastical forms into an immersive environment using natural materials and discarded objects. His approach transforms everyday waste into imaginative structures that viewers can experience in physical space.</p>
+
+                <h3>C. Concept and Message</h3>
+                <p>The installation draws inspiration from Mebuyan, a goddess in Bagobo mythology associated with death, fertility, and the afterlife. New reimagines this traditional figure through a futuristic, otherworldly environment. By combining Indigenous mythology with science-fiction imagery, he demonstrates how Filipino stories can inspire new forms of artistic expression.</p>
+
+                <h3>D. Social and Cultural Context</h3>
+                <p>Contemporary Filipino artists work within a society shaped by Indigenous traditions, colonial history, globalization, and rapid technological change. New brings pre-colonial mythology into contemporary public spaces, helping audiences reconnect with cultural stories that may receive less attention than more familiar narratives. His use of locally available and discarded materials also reflects resourcefulness within Filipino communities.</p>
+
+                <h3>E. Contemporary Issue Represented</h3>
+                <p><i>Mebuyan's Colony</i> raises awareness of plastic pollution, waste, and environmental responsibility. By transforming discarded materials into an imaginative installation, New challenges viewers to reconsider what society throws away and how waste can be repurposed. The artwork connects environmental concerns with cultural identity and sustainable creative practices.</p>
+
+                <h3>F. Connection Between Historical and Contemporary Art</h3>
+                <p>This artwork reflects the changes in art throughout history by showing how artists continue to draw inspiration from cultural beliefs while experimenting with new materials and forms. Like ancient and Indigenous art, it uses mythology to communicate ideas about life and the world. However, instead of relying only on traditional objects or permanent monuments, New creates an immersive installation from recycled and everyday materials. His work demonstrates how contemporary art can preserve cultural heritage while addressing present-day environmental issues.</p>
+
+                <div class="mag-footnote">
+                    Content sources:
+                    <a href="https://culturalcenter.gov.ph/press-release/mebuyans-colony-in-ccp-function-beyond-the-fantastical/"
+                    target="_blank" rel="noopener noreferrer">
+                        Cultural Center of the Philippines, “Mebuyan's Colony: Function Beyond the Fantastical”
+                    </a>;
+                    <a href="https://www.lahorebiennale.org/lb03-artists/leeroy-new/"
+                    target="_blank" rel="noopener noreferrer">
+                        Lahore Biennale Foundation, Leeroy New artist profile
+                    </a>.
+                    Image credit: Leeroy New, Mebuyan's Colony, via the Lahore Biennale Foundation.
+                </div>
             </div>
         </article>
     `,
@@ -818,20 +928,154 @@ const PAGE_HTML = {
     15: THEN_NOW.right,
     16: `
         <article class="behind-smile">
-            <p class="bs-kicker">Art Through History <span>·</span> 16</p>
+            <p class="bs-kicker">My Art, My Time <span>·</span> 16</p>
+            <h3 class="bs-title">Heritage Beyond Time</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_6.jpg" alt="Heritage Beyond Time artwork">
+                <figcaption>Cultural Identity</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p class="bs-meta"><b>Artists:</b> Lugo, Dhanlowel Makaveli &amp; Lirio, Paul John</p>
+                <p class="bs-meta"><b>Medium:</b> Digital illustration</p>
+                <p>This contemporary artwork is inspired by the works of Fernando Amorsolo, particularly his use of warm colors and his portrayal of Filipino culture and rural life. It represents the beauty, identity, and rich culture of the Philippines through the silhouette of a Filipino person, bahay kubo, coconut trees, sampaguita flowers, golden sun, Philippine flag, and historic church. The blurred appearance serves as a reminder that our culture and traditions may slowly fade if we forget to preserve them. It encourages us to remember our roots, appreciate our heritage, and remain proud of being Filipino despite the changes brought by time and modern society.</p>
+            </div>
+            <br>
             <h3 class="bs-title">Behind the Smile</h3>
             <figure class="bs-art">
                 <img src="images/contemporary/contemporary_7.png" alt="Behind the Smile artwork">
                 <figcaption>What we show · What we feel</figcaption>
             </figure>
             <div class="bs-caption">
+                <p class="bs-meta"><b>Artists:</b> Malitig, Jimuel Ben &amp; Mercado, Alyssa Joyce</p>
+                <p class="bs-meta"><b>Medium:</b> Digital illustration</p>
                 <p>This artwork shows the gap between what people display outside and what they feel inside. Inspired by Modern Art’s abstract forms, expressive colors, and emotional symbolism, we combined an anime-inspired portrait with a dark, chaotic background of tangled red lines. Instead of showing sadness in the face, we let the background reveal the hidden struggles of overthinking and social pressure. We want viewers to remember that not everyone who smiles is happy, so we should always be kind and understanding.</p>
+            </div>
+            <br>
+            <h3 class="bs-title">Rooted, Yet Connected</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_9.jpg" alt="Filipino woman in traditional clothing holding a smartphone in a rice field">
+                <figcaption>Tradition · Identity · Progress</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p class="bs-meta"><b>Artists:</b> Pedutem, Zywin Angelo &amp; Platero, Jose Eugenio</p>
+                <p class="bs-meta"><b>Medium:</b> Digital illustration</p>
+                <p>This artwork shows a Filipino in a salakot and patadyong standing in a rice field, holding a smartphone, with a coconut tree, a nipa hut, and a distant city skyline behind her. Inspired by Fernando Amorsolo’s rural landscapes, we borrowed his warm golden palette and glowing sun, then reinterpreted his timeless countryside by adding a glowing phone and making her the center of the scene. The phone stands out against the warm colors to show technology entering traditional spaces. It represents Filipino identity in an age of globalization, where we stay tied to our land while living in a connected world.</p>
+            </div>
+
+            <div class="mag-footnote">
+            Artworks courtesy of the student artists. Used for educational purposes.
             </div>
         </article>
     `,
-    18: `
+    17: `
+        <article class="behind-smile">
+            <p class="bs-kicker">My Art, My Time <span>·</span> 17</p>
+            <h3 class="bs-title">Between Books and Screens</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_8.jpg" alt="Between Books and Screens artwork">
+                <figcaption>Study · Technology · Everyday life</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p class="bs-meta"><b>Artists:</b> Monzor, Jessam Mae &amp; Olagueber, Jhon</p>
+                <p class="bs-meta"><b>Medium:</b> Pen and ink on paper</p>
+                <p>This artwork shows the daily life of a modern student balancing studies, technology, and other responsibilities. Inspired by Fernando Amorsolo’s paintings of everyday Filipino life, we reinterpreted those ordinary scenes in a modern setting by adding a laptop, smartphone, books, and social media icons. It represents how students today rely on technology for learning and communication while dealing with schoolwork, distractions, and deadlines. We want viewers to understand that being a student is not always easy, and that we need to manage our time, stay focused, and balance technology with our studies.</p>
+            </div>
+            <br>
+            <h3 class="bs-title">Life and Death</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_10.jpg" alt="Artwork combining a human face and a skull">
+                <figcaption>Life · Change · Mortality</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p class="bs-meta"><b>Artists:</b> Trinidad, Kirt Brainer &amp; Unigo, Paul Benedict</p>
+                <p class="bs-meta"><b>Medium:</b> Graphite pencil on paper</p>
+                <p>This artwork shows the two sides of human existence: life and death. One half is a human face representing life, beauty, and identity, while the other half is a skull representing the reality that life does not last forever. Inspired by the Renaissance study of human anatomy by artists like Leonardo da Vinci, we reinterpreted it by combining both into one face to show the contrast. It reflects how everyone experiences aging, change, and eventually death, and how people can focus too much on appearance. We want viewers to remember that life is temporary, so we should appreciate it and value who we are, not just how we look.</p>
+            </div>
+
+            <div class="mag-footnote">
+            Artworks courtesy of the student artists. Used for educational purposes.
+            </div>
+        </article>
+    `,
+    18:`
         <article class="mag-page reflection-page">
-            <p class="bs-kicker">Looking Back <span>·</span> 18</p>
+            <p class="bs-kicker">Artists' Statements <span>·</span> 18</p>
+            <p class="mag-kicker"></p>
+            <h2 class="mag-heading">Artists' Statements</h2>
+            <p class="mag-deck">Reinterpreting the past and expressing the present through our own creativity.</p>
+
+            <div class="intro-rule"></div>
+
+            <h3>Historical Period</h3>
+
+            <p>
+                Our historical-inspired artworks explore the lasting influence of
+                ancient civilizations, Philippine history, and traditional artistic
+                movements on the way we understand the world. Inspired by Greek and
+                Roman architecture, Philippine cultural heritage, and the dramatic
+                qualities of Baroque art, we used recognizable historical elements,
+                symbols, and artistic techniques as foundations for our creations.
+            </p>
+
+            <p>
+                Rather than simply reproducing historical artworks, we reinterpreted
+                their ideas through our own perspectives. We combined classical
+                architectural features with modern student life, used coffee as a
+                medium to portray Philippine history and identity, and incorporated
+                symbols of strength, achievement, and hope through Baroque-inspired
+                imagery. These changes allowed us to connect the beliefs, traditions,
+                and artistic expressions of the past with experiences that are
+                meaningful to us today.
+            </p>
+
+            <p>
+                Through these artworks, we represent themes such as education,
+                cultural identity, freedom, perseverance, and personal growth.
+                We want our audience to understand that history is not simply
+                something to remember, but something that continues to shape
+                our identity and inspire new ways of expressing ourselves.
+            </p>
+
+            <div class="intro-rule"></div>
+
+            <h3>Contemporary Period</h3>
+
+            <p>
+                Our contemporary-inspired artworks explore the experiences,
+                emotions, and challenges that shape life in the present. Influenced
+                by Modern and Surrealist art, as well as contemporary artistic
+                practices, we experimented with symbolism, unusual imagery,
+                contrasting elements, and different materials to communicate
+                ideas beyond what can be expressed through realistic representation.
+            </p>
+
+            <p>
+                We reinterpreted these artistic influences by connecting them to
+                issues and experiences familiar to us, such as academic pressure,
+                burnout, the passage of time, and the importance of slowing down
+                and taking care of ourselves. Through our creative choices, we
+                transformed familiar artistic ideas into personal expressions
+                that reflect the realities of modern life.
+            </p>
+
+            <p>
+                Our goal is to remind viewers that contemporary art is not only
+                about experimenting with new styles and materials, but also about
+                expressing personal experiences and responding to the world around
+                us. We hope our artworks encourage people to reflect on their own
+                struggles, appreciate different perspectives, and recognize that
+                art remains a meaningful way to communicate ideas, emotions,
+                and messages in today's society.
+            </p>
+
+            <div class="mag-footnote">
+                Collective statement from the student artists. Used for educational purposes.
+            </div>
+        </article>
+    `,
+    19: `
+        <article class="mag-page reflection-page">
+            <p class="bs-kicker">Looking Back <span>·</span> 19</p>
             <p class="mag-kicker"></p>
             <h2 class="mag-heading">Reflection</h2>
             <p class="mag-deck">Art connects what people valued then with what matters to us now.</p>
@@ -873,6 +1117,11 @@ const PAGE_HTML = {
 
             <div class="mag-footnote">The past gives us a starting point; our own experiences carry the conversation forward.</div>
         </article>
+    `,
+    20: `
+        <div style="position:absolute;inset:0;overflow:hidden">
+            <img src="images/back-cover.png" alt="Art Through Time back cover" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;border-radius:0">
+        </div>
     `,
 };
 

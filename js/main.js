@@ -110,16 +110,20 @@ if (grid) {
         grid.innerHTML = CONTRIBUTORS
             .filter((c) =>
                 c.name.toLowerCase().includes(q) &&
-                (active === "all" || c.pages.some((p) => p.section === active))
+                (active === "all" || c.pages.some((p) =>
+                    SECTIONS.some((s) =>
+                        s.id === active && p >= s.start && p <= s.end
+                    )
+                ))
             )
             .map((c) => `
                 <article class="card person">
-                    ${ph(c.photo, "photo")}
+                <br>
                     <strong>${c.name}</strong>
                     <div class="label">${c.role}</div>
                     <div class="chips">
                         ${c.pages.map((p) => `
-                            <a class="chip" href="${viewerLink(p.page)}">p. ${p.page}</a>
+                            <a class="chip" href="${viewerLink(p)}">p. ${p}</a>
                         `).join("")}
                     </div>
                 </article>

@@ -4,7 +4,7 @@ const MAGAZINE = {
   course: "BSIT-3B",
   instructor: "Ms. Vienna Alexa Macatangay",
   year: "2026-2027",
-  totalPages: 19,
+  totalPages: 20,
 };
 
 // start/end = flipbook page numbers (1-based). Update when the layout is final.
@@ -15,134 +15,113 @@ const SECTIONS = [
   { id: "history",      title: "Art Through History", start: 4,  end: 11 },
   { id: "contemporary", title: "Contemporary Art",    start: 12, end: 13 },
   { id: "thenandnow",   title: "Then & Now",          start: 14, end: 15 },
-  { id: "myart",        title: "My Art, My Time",     start: 16, end: 16 },
-  { id: "statement",    title: "Artist's Statement",  start: 17, end: 17 },
-  { id: "reflection",   title: "Reflection",          start: 18, end: 18 },
-  { id: "back",         title: "Back cover",          start: 19, end: 19 },
+  { id: "myart",        title: "My Art, My Time",     start: 16, end: 17 },
+  { id: "statement",    title: "Artists' Statement",  start: 18, end: 18 },
+  { id: "reflection",   title: "Reflection",          start: 19, end: 19 },
+  { id: "back",         title: "Back cover",          start: 20, end: 20 },
 ];
 
-// Replace role / pages / photo.
 const CONTRIBUTORS = [
-  { 
-    id: 1, name: "ALOGORDO, BERNADINE JOY NOCHE", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 1, name: "ALOGORDO, BERNADINE JOY NOCHE",
+    role: "Original Artwork Contributor",
+    pages: [5]
   },
-  { id: 2, 
-    name: "CABALBAG, JOHN NHEJI GUTIERREZ", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 2, name: "CABALBAG, JOHN NHEIJI GUTIERREZ",
+    role: "Original Artwork Contributor",
+    pages: [5]
   },
-  { id: 3, 
-    name: "CABANGLAN, KYLE ANGEL TAJAN", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 3, name: "CABANGLAN, KYLE ANGEL TAJAN",
+    role: "Original Artwork Contributor",
+    pages: [5]
   },
-  { id: 4, 
-    name: "CASTILLO, JERICHO MANALO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 4, name: "CASTILLO, JERICHO MANALO",
+    role: "Original Artwork Contributor",
+    pages: [5]
   },
-  { id: 5, 
-    name: "CUARTO, JAMILLA FEDERICO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 5, name: "CUARTO, JAMILLA FEDERICO",
+    role: "Original Artwork Contributor",
+    pages: [7]
   },
-  { id: 6, 
-    name: "DACILLO, CARL JOSEPH ENDAYA", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 6, name: "DACILLO, CARL JOSEPH ENDAYA",
+    role: "Original Artwork Contributor",
+    pages: [7]
   },
-  { id: 7, 
-    name: "ESCAREZ, JEREMY ROXAS", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 7, name: "ESCAREZ, JEREMY ROXAS",
+    role: "Original Artwork Contributor",
+    pages: [9]
   },
-  { id: 8, 
-    name: "GOMEZ, ARHON JOSH AALA", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 8, name: "GOMEZ, ARHON JOSH AALA",
+    role: "Original Artwork Contributor",
+    pages: [9]
   },
-  { id: 9, 
-    name: "ILAGAN, ADRIAN YURI MERCADO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 9, name: "ILAGAN, ADRIAN YURI MERCADO",
+    role: "Original Artwork Contributor",
+    pages: [11]
   },
-  { id: 10, 
-    name: "LAYA, DREI MATTHEW BEREDO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 10, name: "LAYA, DREI MATTHEW BEREDO",
+    role: "Original Artwork Contributor",
+    pages: [11]
   },
-  { id: 11, 
-    name: "LIRIO, PAUL JOHN FERNANDO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 11, name: "LIRIO, PAUL JOHN FERNANDO",
+    role: "Original Artwork Contributor",
+    pages: [16]
   },
-  { id: 12, 
-    name: "LUGO, DHANLOWEL MAKAVELI TEANO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 12, name: "LUGO, DHANLOWEL MAKAVELI TEANO",
+    role: "Original Artwork Contributor",
+    pages: [16]
   },
-  { id: 13, 
-    name: "MALITIG, JIMUEL BEN CORONADO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 13, name: "MALITIG, JIMUEL BEN CORONADO",
+    role: "Original Artwork Contributor",
+    pages: [16]
   },
-  { id: 14, 
-    name: "MERCADO, ALYSSA JOYCE", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 14, name: "MERCADO, ALYSSA JOYCE",
+    role: "Original Artwork Contributor",
+    pages: [16]
   },
-  { id: 15, 
-    name: "MONZOR, JESSAM MAE DUMPA", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 15, name: "MONZOR, JESSAM MAE DUMPA",
+    role: "Original Artwork Contributor, Front-End Developer, Web &amp; Magazine Layout Designer, Content Writer, Researcher",
+    pages: [3, 4, 6, 8, 10, 17]
   },
-  { id: 16, 
-    name: "OLAGUEBER, JHON MONTILDE", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: []
+  {
+    id: 16, name: "OLAGUEBER, JHON MONTILDE",
+    role: "Original Artwork Contributor",
+    pages: [17]
   },
-  { id: 17, 
-    name: "PEDUTEM, ZYWIN ANGELO BECERIL", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 17, name: "PEDUTEM, ZYWIN ANGELO BECERIL",
+    role: "Original Artwork Contributor, Front-End Developer, Web &amp; Magazine Layout Designer, Content Writer, Researcher",
+    pages: [1, 2, 16, 18, 20],
   },
-  { id: 18, 
-    name: "PLATERO, JOSE EUGENIO PAWIG", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 18, name: "PLATERO, JOSE EUGENIO PAWIG",
+    role: "Original Artwork Contributor, Front-End Developer, Web &amp; Magazine Layout Designer, Content Writer, Researcher",
+    pages: [12, 13, 16, 17, 18, 19]
   },
-  { id: 19, 
-    name: "TRINIDAD, KIRT BRAINER CANOÑO", 
-    role: "[ROLE]", 
-    photo: "", 
-    pages: [] 
+  {
+    id: 19, name: "TRINIDAD, KIRT BRAINER CANOÑO",
+    role: "Original Artwork Contributor",
+    pages: [17]
   },
-  { id: 20, 
-    name: "UNIGO, PAUL BENEDICT GONZALES", 
-    role: "Then & Now", 
-    photo: "", 
-    pages: [] 
-  },
+  {
+    id: 20, name: "UNIGO, PAUL BENEDICT GONZALES",
+    role: "Original Artwork Contributor, Front-End Developer, Content Writer, Researcher",
+    pages: [14, 15, 17]
+  }
 ];
 
 const REFERENCES = [
@@ -195,6 +174,19 @@ const REFERENCES = [
   { type: "images", text: "Caravaggio, Portrait", page: 10, license: "Image source: Wikipedia; verify image-specific license", url: "https://en.wikipedia.org/wiki/Caravaggio" },
   { type: "images", text: "Gian Lorenzo Bernini, Portrait", page: 10, license: "Image source: Wikipedia; verify image-specific license", url: "https://en.wikipedia.org/wiki/Gian_Lorenzo_Bernini" },
   { type: "images", text: "Gian Lorenzo Bernini, The Ecstasy of Saint Teresa (1647–1652)", page: 10, license: "Image source: Artble; verify reuse permissions", url: "https://www.artble.com/artists/gian_lorenzo_bernini/sculpture/the_ecstasy_of_saint_teresa" },
+
+  // CONTEMPORARY ART — PAGE 12: AI WEIWEI
+  { type: "images", text: "Ai Weiwei, Artist Portrait", page: 12, license: "Image source: ArtReview; verify reproduction permissions", url: "https://artreview.com/ai-weiwei-how-art-comes-alive/" },
+  { type: "images", text: "Ai Weiwei, Dropping a Han Dynasty Urn (1995)", page: 12, license: "Image source: Smarthistory; verify reproduction permissions", url: "https://smarthistory.org/ai-weiwei-dropping-a-han-dynasty-urn/" },
+  { type: "websites", text: "Smarthistory. Ai Weiwei, Dropping a Han Dynasty Urn", url: "https://smarthistory.org/ai-weiwei-dropping-a-han-dynasty-urn/" },
+  { type: "websites", text: "Solomon R. Guggenheim Museum. Ai Weiwei", url: "https://www.guggenheim.org/teaching-materials/art-and-china-after-1989-theater-of-the-world/ai-weiwei" },
+
+  // CONTEMPORARY ART — PAGE 13: LEEROY NEW
+  { type: "images", text: "Leeroy New, Artist Portrait", page: 13, license: "Image source: Arts Help; verify reproduction permissions", url: "https://www.artshelp.com/elemental-by-leeroy-new-working-with-liter-of-light-to-showcase-beauty-in-sustainability-and-advocate-for-equal-access-to-solar-powered-lights-in-the-philippines/" },
+  { type: "images", text: "Leeroy New, Mebuyan's Colony", page: 13, license: "Image source: Lahore Biennale Foundation; verify reproduction permissions", url: "https://www.lahorebiennale.org/lb03-artists/leeroy-new/" },
+  { type: "websites", text: "Lahore Biennale Foundation. Leeroy New", url: "https://www.lahorebiennale.org/lb03-artists/leeroy-new/" },
+  { type: "websites", text: "Cultural Center of the Philippines. Mebuyan's Colony: Function Beyond the Fantastical", url: "https://culturalcenter.gov.ph/press-release/mebuyans-colony-in-ccp-function-beyond-the-fantastical/" },
+  { type: "websites", text: "Arts Help. Elemental by Leeroy New: Sustainability and Access to Solar-Powered Lights in the Philippines", url: "https://www.artshelp.com/elemental-by-leeroy-new-working-with-liter-of-light-to-showcase-beauty-in-sustainability-and-advocate-for-equal-access-to-solar-powered-lights-in-the-philippines/" },
 
   // Then & Now (pages 14–15)
   { type: "images", text: "Mona Lisa, Leonardo da Vinci (c. 1503–1506)", page: 14, license: "Public domain" },
