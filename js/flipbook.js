@@ -1189,7 +1189,7 @@ function init(page = 0) {
         showPageCorners: false,   // no page peeking when the cursor hovers
         flippingTime: 900,
         maxShadowOpacity: 0.45,
-        mobileScrollSupport: false
+        mobileScrollSupport: true
     });
     // every page (cover included) uses the same soft, paper-like flip
     flip.loadFromHTML(document.querySelectorAll("#book .page"));
