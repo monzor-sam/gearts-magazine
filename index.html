@@ -12,7 +12,7 @@
 
     <main>
       <section class="section">
-        <div class="wrap hero">
+        <div class="wrap hero" style="grid-template-columns:1fr 1fr">
           <div>
             <p class="label">Magazine Portfolio</p>
             <h1 data-title></h1>
@@ -29,8 +29,10 @@
             </div>
           </div>
 
-          <a href="magazine.html" aria-label="Open the magazine">
-            <div class="ph">Cover preview</div>
+          <a href="magazine.html" aria-label="Open the magazine" style="display:block;width:100%;max-width:520px;margin:0 auto;justify-self:center;align-self:center">
+            <div class="ph" style="padding:0;aspect-ratio:auto">
+              <img src="images/cover.jpg" alt="Art Through Time magazine cover" style="display:block;width:100%;height:auto;margin:0 auto;object-fit:contain;object-position:center">
+            </div>
           </a>
 
         </div>
@@ -44,31 +46,31 @@
 
           <div class="cards">
             <a class="card" href="viewer.html#p=4">
-              <div class="ph"></div>
+              <div class="ph" style="padding:0"><img src="images/artth.jpeg" alt="Art Through History"></div>
               <strong>Art Through History</strong>
               <p class="label">4–5 periods</p>
             </a>
 
             <a class="card" href="viewer.html#p=12">
-              <div class="ph"></div>
+              <div class="ph" style="padding:0"><img src="images/cont.jpeg" alt="Contemporary Art"></div>
               <strong>Contemporary Art</strong>
               <p class="label">2–3 artworks</p>
             </a>
 
             <a class="card" href="viewer.html#p=14">
-                 <div class="ph" style="padding:0"><img src="images/then-and-now/then-now-sign.jpg" alt="Road signs reading Then and Now"></div>
+              <div class="ph" style="padding:0"><img src="images/tandn.jpeg" alt="Then and Now"></div>
               <strong>Then &amp; Now</strong>
               <p class="label">Comparison</p>
             </a>
 
             <a class="card" href="viewer.html#p=16">
-              <div class="ph"></div>
+              <div class="ph" style="padding:0"><img src="images/myart.jpeg" alt="My Art, My Time"></div>
               <strong>My Art, My Time</strong>
               <p class="label">5 originals</p>
             </a>
 
             <a class="card" href="viewer.html#p=18">
-              <div class="ph"></div>
+              <div class="ph" style="padding:0"><img src="images/reflection.jpeg" alt="Reflection"></div>
               <strong>Reflection</strong>
               <p class="label">Our takeaways</p>
             </a>
@@ -90,10 +92,10 @@
               </a>
           </div>
 
-          <div class="ph wide" style="grid-template-columns:1fr 2fr;gap:0;padding:0">
-  <img src="images/then-and-now/mona-lisa.jpg" alt="Mona Lisa by Leonardo da Vinci" style="object-position:center 20%">
-  <img src="images/then-and-now/dropping-a-han-dynasty-urn.jpg" alt="Ai Weiwei dropping a Han Dynasty urn, three photographs">
-</div>
+          <div class="ph wide" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;padding:0">
+            <img src="images/then-and-now/mona-lisa.jpg" alt="Mona Lisa by Leonardo da Vinci" style="object-position:center 20%">
+            <img src="images/then-and-now/dropping-a-han-dynasty-urn.jpg" alt="Ai Weiwei dropping a Han Dynasty urn, three photographs" style="object-position:center">
+          </div>
 
         </div>
       </section>
