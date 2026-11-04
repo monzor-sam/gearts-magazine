@@ -292,10 +292,10 @@ body.viewer #book .page .bs-caption .bs-meta + p:not(.bs-meta){margin-top:.8em}
 /* ===== 9. Magazine pages inside the flipbook (Museum Gallery theme) ===== */
 .page .mag-page{
   height:100%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
-  padding:5cqw 5cqw 4cqw;color:#202A27;font-family:Georgia,"Times New Roman",serif;
+  padding:5cqw 5cqw 4cqw;;color:#202A27;font-family:Georgia,"Times New Roman",serif;
   scrollbar-width:thin;scrollbar-color:#9DAD99 #eee8da;
 }
-.page .mag-kicker{margin:0 0 3cqw;padding-top:2cqw;border-top:1px solid #C6A66B;color:#68776b;font:700 2.5cqw/1.3 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.page .mag-kicker{margin:0 0 3cqw;padding-top:2cqw;border-top:1px solid #C6A66B;color:#68776b;font:700 1cqw/1.3 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
 .page .mag-heading{font-size:8cqw;line-height:1.02;margin:0 0 2cqw;color:#202A27}
 .page .mag-deck{font-size:3.5cqw;line-height:1.35;color:#68776b;font-style:italic;margin:0 0 4cqw}
 .page .mag-page h3{font:700 3.8cqw/1.2 system-ui,sans-serif;color:#526B58;margin:4cqw 0 1.5cqw;letter-spacing:.02em}
@@ -383,311 +383,62 @@ body:not(.viewer) main > .section:nth-child(3){animation-delay:.2s}
   body:not(.viewer) main > .section{animation:none}
 }
 
-
 /* ===== 11. Responsive ===== */
-
-/* TABLETS AND SMALL LAPTOPS */
-@media (max-width: 900px) {
-  .site-header .wrap {
-    height: auto;
-    min-height: 64px;
-    flex-wrap: wrap;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .nav {
-    gap: 16px;
-    overflow-x: auto;
-    width: 100%;
-    padding: 4px 0;
-    scrollbar-width: thin;
-  }
-
-  .nav a {
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* Keep tablet content readable */
-  .hero {
-    grid-template-columns: 1.2fr 1fr;
-  }
-
-  .grid2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .toc {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  /* Viewer contents drawer */
-  .viewer-body,
-  body.rail-open .viewer-body {
-    grid-template-columns: 1fr;
-  }
-
-  .rail {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: min(280px, 85vw);
-    z-index: 30;
-    transform: translateX(-100%);
-    transition: transform .25s ease;
-    box-shadow: 8px 0 30px rgba(0,0,0,.4);
-  }
-
-  body.rail-open .rail {
-    transform: translateX(0);
-  }
-
-  .rail button {
-    width: 100%;
-  }
-
-  .rail h2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .rail-close {
-    display: inline-block !important;
-    width: auto !important;
-    padding: 0 !important;
-    font-size: 1.4rem !important;
-    border: 0 !important;
-  }
-
-  /* Viewer scrolling */
-  body.viewer .viewer-body,
-  body.viewer .stage {
-    min-width: 0;
-    min-height: 0;
-  }
-
-  body.viewer .book-area {
-    min-width: 0;
-    min-height: 0;
-    overflow: auto !important;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-    touch-action: pan-x pan-y;
-  }
-
-  body.viewer .book-holder {
-    flex: 0 0 auto;
-  }
+@media (max-width:900px){
+  .hero,.grid2,.toc{grid-template-columns:1fr !important}
+  .hero>a,.hero>.ph{max-width:240px}
+  .hero>.ph.wide{max-width:none}
+  .site-header .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+  .nav{gap:16px;overflow-x:auto;width:100%;padding:4px 0}
+  .nav a{white-space:nowrap}
+  /* viewer: contents rail becomes an overlay drawer */
+  .viewer-body,body.rail-open .viewer-body{grid-template-columns:1fr}
+  .rail{position:fixed;top:0;bottom:0;left:0;width:min(280px,85vw);z-index:30;transform:translateX(-100%);transition:transform .25s ease;box-shadow:8px 0 30px rgba(0,0,0,.4)}
+  body.rail-open .rail{transform:none}
+  .rail button{width:100%}
+  .rail h2{display:flex;justify-content:space-between;align-items:center}
+  .rail-close{display:inline-block !important;width:auto !important;padding:0 !important;font-size:1.4rem !important;border:0 !important}
 }
-
-/* TABLET PORTRAIT AND SMALLER */
-@media (max-width: 700px) {
-  .hero,
-  .grid2,
-  .toc {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    gap: 16px;
-  }
-
-  .hero > a,
-  .hero > .ph {
-    max-width: 240px;
-  }
-
-  .hero > .ph.wide {
-    max-width: none;
-  }
-
-  .section {
-    padding: 24px 0;
-  }
-
-  h1 {
-    margin-bottom: .35em;
-  }
-
-  .site-footer {
-    padding: 24px 0;
-  }
-
-  input[type="search"] {
-    min-width: 0;
-    width: 100%;
-    margin-left: 0 !important;
-  }
-
-  .filters {
-    margin-left: 0;
-  }
-
-  .arrow {
-    width: 38px;
-    height: 38px;
-    opacity: .85;
-  }
-
-  #prev { left: 6px; }
-  #next { right: 6px; }
-
-  .book-area {
-    padding: 12px;
-  }
-
-  .viewer-top {
-    flex-wrap: wrap;
-    padding: 8px 12px;
-  }
-
-  .viewer-top .btn {
-    padding: 6px 10px;
-    font-size: .8rem;
-  }
-
-  .tools .sep,
-  #fullscreen {
-    display: none;
-  }
-
-  body.contributors #people {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  body.contributors #people .ph {
-    width: 76px;
-  }
-
+@media (max-width:700px){
+  .section{padding:24px 0}
+  .hero{gap:16px}
+  h1{margin-bottom:.35em}
+  .site-footer{padding:24px 0}
+  input[type="search"]{min-width:0;width:100%;margin-left:0 !important}
+  .filters{margin-left:0}
+  .arrow{width:38px;height:38px;opacity:.85}
+  #prev{left:6px}#next{right:6px}
+  .book-area{padding:12px}
+  .viewer-top{flex-wrap:wrap;padding:8px 12px}
+  .viewer-top .btn{padding:6px 10px;font-size:.8rem}
+  .tools .sep,#fullscreen{display:none}
+  body.contributors #people{grid-template-columns:repeat(2,1fr);gap:12px}
+  body.contributors #people .ph{width:76px}
   body.contributors #people strong,
   body.contributors #people h3,
-  body.contributors #people h4 {
-    font-size: .92rem;
-  }
+  body.contributors #people h4{font-size:.92rem}
 }
-
-/* MOBILE PHONES */
-@media (max-width: 540px) {
-  .wrap {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .site-header .wrap {
-    gap: 8px;
-  }
-
-  .brand {
-    font-size: 1.05rem;
-  }
-
-  .nav {
-    gap: 14px;
-  }
-
-  .nav a {
-    font-size: .84rem;
-  }
-
-  .viewer-top .brand {
-    display: none;
-  }
-
-  .viewer-top .left {
-    gap: 8px;
-  }
-
-  .viewer-top .tools {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .viewer-top .btn {
-    padding: 7px 9px;
-    font-size: .76rem;
-  }
-
-  .scrubber {
-    padding: 8px;
-  }
-
-  .page-count {
-    font-size: .7rem;
-  }
-
-  body.contributors #people .card,
-  body.contributors #people .person {
-    padding: 20px 8px 16px;
-  }
-}
-
-/* SMALL PHONES */
-@media (max-width: 380px) {
-  .nav {
-    gap: 10px;
-  }
-
-  .nav a {
-    font-size: .78rem;
-  }
-
-  .btn {
-    padding: 8px 12px;
-    font-size: .82rem;
-  }
-
-  body.contributors #people {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* FLIPBOOK PAGE CONTENT */
-@media (max-width: 640px) {
+@media (max-width:640px){
   body.viewer #book .page,
-  body.viewer #book .stf__item {
-    padding: 12px 16px;
-  }
+  body.viewer #book .stf__item{padding:12px 16px}
+}
+@media (max-width:540px){
+  .viewer-top .brand{display:none}
 }
 
-/* SMALL ARTWORK GALLERIES */
-@media (max-width: 480px) {
-  .page .representative-gallery {
-    gap: 2cqw;
-  }
-
-  .page .artist-feature {
-    padding: 1.5cqw;
-  }
-
-  .page .artist-image {
-    height: 30cqw;
-    min-height: 55px;
-  }
-
-  .page .artist-caption {
-    gap: 1cqw;
-  }
-
-  .page .artist-caption b {
-    font-size: 3.7cqw;
-  }
-
-  .page .artist-caption span {
-    font-size: 3.4cqw;
-  }
-
-  .page .artist-caption small {
-    font-size: 3cqw;
-  }
+@media(max-width:480px){
+.page .representative-gallery{gap:2cqw}
+.page .artist-feature{padding:1.5cqw}
+.page .artist-image{height:30cqw;min-height:55px}
+.page .artist-caption{gap:1cqw}
+.page .artist-caption b{font-size:3.7cqw}
+.page .artist-caption span{font-size:3.4cqw}
+.page .artist-caption small{font-size:3cqw}
 }
 
-/* Hide only the magazine viewer's TOC thumbnails */
-body.viewer #book .toc .ph {
-  display: none !important;
+/* Remove thumbnails from Table of Contents */
+.toc .ph {
+    display: none !important;
 }
 
 /* Enable scrolling on phones and tablets */
