@@ -1,12 +1,25 @@
+/* =====================================================
+   ART THROUGH TIME: style.css (cleaned)
+   1 Variables   2 Base   3 Header/Footer   4 Buttons/Chips   5 Layout blocks
+   6 Dark top band   7 Page-specific   8 Viewer   9 Magazine pages (inside flipbook)
+   10 Shadows & motion   11 Responsive
+   ===================================================== */
+
+/* ===== 1. Variables ===== */
 :root{
   --forest:#202A27; --cream:#F1EBDD; --sage:#9DAD99; --gold:#C6A66B;
   --bg:#F1EBDD; --surface:#F8F4EA; --ink:#202A27; --muted:#5d6a63; --line:#d9cfb8;
-  --dark:#202A27; --accent:#202A27; --accent-soft:#e3e5d6; --hl:#9DAD99; --hl-light:#C6A66B; --stage:radial-gradient(ellipse at center,#2d3a36 0%,#202A27 78%);
+  --dark:#202A27; --accent:#202A27; --accent-soft:#e3e5d6; --hl:#9DAD99; --hl-light:#C6A66B;
+  --stage:radial-gradient(ellipse at center,#2d3a36 0%,#202A27 78%);
   --font-display:Georgia,"Times New Roman",serif;
   --font-body:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --max:1200px; --radius:10px;
-  --shadow:0 1px 2px rgba(32,42,39,.06),0 8px 24px rgba(32,42,39,.08);
+  --shadow-soft:0 1px 2px rgba(32,42,39,.08),0 4px 12px rgba(32,42,39,.08);
+  --shadow-lift:0 2px 4px rgba(32,42,39,.10),0 12px 28px rgba(32,42,39,.16);
+  --shadow-tiny:0 1px 2px rgba(32,42,39,.14);
 }
+
+/* ===== 2. Base ===== */
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6}
@@ -17,238 +30,118 @@ h2{font-size:clamp(1.6rem,3vw,2.5rem)}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,32px)}
-.section{padding:clamp(40px,8vw,88px) 0}
+.section{padding:clamp(28px,5vw,64px) 0}
 .section.alt{background:var(--surface)}
-.label{font-size:.78rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin:0 0 .6em}
+.section p{margin:0 0 .8em}
+.section h2{margin-bottom:.4em}
+.section .cards{margin-top:16px}
+.label{font-size:.78rem;letter-spacing:.06em;color:#7a7f68;text-transform:uppercase;margin:0 0 .6em}
+.hero h1,.hero h2{letter-spacing:-.015em}
 
-/* Header / footer */
-.site-header{background:var(--accent);color:#F1EBDD;border-bottom:1px solid #34423d;position:sticky;top:0;z-index:10}
+/* ===== 3. Header / footer ===== */
+.site-header{background:var(--accent);color:var(--cream);border-bottom:1px solid #34423d;position:sticky;top:0;z-index:10}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
 .brand{font-family:var(--font-display);font-weight:700;font-size:1.2rem;text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.site-header .brand,.site-header .nav a{color:var(--cream)}
 .nav{display:flex;gap:24px;align-items:center}
 .nav a{text-decoration:none;font-size:.92rem;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .2s}
-.nav a:not(.btn):hover{border-color:#556660}
-.nav a[aria-current="page"]{border-bottom-color:var(--hl-light);font-weight:600}
-.site-footer{background:var(--dark);color:#e4dfd0;padding:20px 0}
-.site-footer .wrap{display:flex;flex-direction:column;text-align:center;font-size:medium;}
+.nav a:not(.btn):hover{border-color:var(--gold)}
+.nav a[aria-current="page"]{border-bottom-color:var(--gold);font-weight:600}
+
+.site-footer{background:var(--dark);color:#e4dfd0;padding:20px 0;border-top:3px solid var(--gold)}
+.site-footer .wrap{display:flex;flex-direction:column;text-align:center;font-size:medium}
 .site-footer nav{display:flex;gap:20px;flex-wrap:wrap}
 .site-footer a{text-decoration:none;opacity:.85}
 .site-footer a:hover{opacity:1;text-decoration:underline}
+.site-footer .label{color:var(--sage)}
 
-/* Buttons / chips */
+/* ===== 4. Buttons / chips ===== */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border:1px solid var(--ink);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-size:.9rem;cursor:pointer;font-family:inherit;line-height:1.2;transition:background .2s,color .2s,transform .1s}
 .btn:hover{background:var(--ink);color:#fff}
 .btn:active{transform:scale(.97)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.nav .btn{background:var(--hl);border-color:var(--hl);color:#fff}
-.btn.primary:hover{background:var(--hl);border-color:var(--hl)}
-.nav .btn:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
-.nav .btn{padding:8px 16px}
 .btn:disabled{opacity:.4;cursor:not-allowed}
-.chip{display:inline-block;padding:3px 12px;border:1px solid var(--line);border-radius:99px;font-size:.78rem;text-decoration:none;background:var(--surface);cursor:pointer;font-family:inherit;color:var(--ink);transition:background .2s,border-color .2s}
-.chip:hover{border-color:var(--hl);background:var(--accent-soft)}
-.chip.active{background:var(--ink);border-color:var(--ink);color:#fff}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--hl);border-color:var(--hl);color:var(--forest)}
+.nav .btn{padding:8px 16px;background:var(--hl);border-color:var(--hl)}
+.site-header .nav .btn{color:var(--forest)}
+.nav .btn:hover{background:var(--cream);border-color:var(--cream)}
+.back{padding:8px 14px !important}
 
-/* Placeholders */
+.chip{display:inline-block;padding:3px 12px;border:1px solid var(--line);border-radius:99px;font-size:.78rem;text-decoration:none;background:var(--surface);cursor:pointer;font-family:inherit;color:var(--ink);transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--sage);background:var(--accent-soft)}
+.chip.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 0}
+
+/* ===== 5. Layout blocks ===== */
 .ph{background:linear-gradient(135deg,#e7e0cf,#dbd2bb);border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:8px;color:var(--muted);font-size:.8rem;aspect-ratio:3/4;overflow:hidden;border-radius:6px}
 .ph img{width:100%;height:100%;object-fit:cover}
 .ph.wide{aspect-ratio:16/9}
 
-/* Layouts */
-.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(16px,4vw,40px);align-items:center}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;text-decoration:none;display:block;transition:box-shadow .2s,transform .2s}
-a.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+a.card{border-top:3px solid var(--sage)}
+a.card:nth-child(even){border-top-color:var(--gold)}
+a.card:hover{transform:translateY(-2px)}
 .card .ph{aspect-ratio:4/3;margin-bottom:12px}
 .card p{margin:.2em 0 0}
 
-/* Contributors */
 .person{text-align:center;padding:24px 12px}
 .person .ph{width:96px;aspect-ratio:1;border-radius:50%;margin:0 auto 12px}
 .person .chips{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 24px;align-items:center}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px;align-items:center}
 
-/* TOC */
 .toc{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .toc a{display:flex;gap:16px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:12px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
-.toc a:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.toc a:hover{border-color:var(--accent)}
 .toc .ph{width:48px;aspect-ratio:3/4;flex:none;padding:0}
 .toc .dots{flex:1;border-bottom:2px dotted var(--line);min-width:12px}
 
-/* Boxes */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
 .section.alt .box{background:var(--bg)}
 .dark{background:var(--dark);color:#fff;padding:28px;border-radius:var(--radius)}
 input[type="search"]{padding:10px 16px;border:1px solid var(--line);border-radius:999px;font:inherit;min-width:240px;background:var(--surface)}
 
-/* ===== Flipbook viewer ===== */
-body.viewer{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:#19211f}
-.viewer-top{display:flex;justify-content:space-between;align-items:center;padding:10px clamp(12px,3vw,24px);background:#202A27;color:#F1EBDD;border-bottom:1px solid #34423d;gap:12px}
-.viewer-top .brand{color:#fff;overflow:hidden;text-overflow:ellipsis}
-.viewer-top .tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.viewer-top .btn{background:#2a3632;border-color:#3f4e48;color:#F1EBDD;padding:8px 14px;font-size:.85rem}
-.viewer-top .btn:hover:not(:disabled){background:var(--hl);border-color:var(--hl)}
-.viewer-top .btn[aria-pressed="true"]{background:var(--hl);border-color:var(--hl)}
-.tools .sep{width:1px;height:22px;background:#3f4e48;margin:0 4px}
-#zoomreset{min-width:62px;font-variant-numeric:tabular-nums}
-
-.viewer-body{flex:1;display:grid;grid-template-columns:0 1fr;min-height:0;transition:grid-template-columns .25s ease}
-body.rail-open .viewer-body{grid-template-columns:260px 1fr}
-.rail{background:#202A27;border-right:1px solid #34423d;overflow:hidden auto;color:#e4dfd0}
-.rail h2{font-family:var(--font-body);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#a3ada4;margin:0;padding:18px 20px 8px;white-space:nowrap}
-.rail button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;gap:12px;width:260px;max-width:100%;padding:12px 20px;cursor:pointer;font-size:.92rem;border-left:3px solid transparent;color:#e4dfd0}
-.rail button span{color:#a3ada4;font-variant-numeric:tabular-nums;font-size:.8rem}
-.rail button:hover{background:#2a3632}
-.rail button:focus-visible{outline:2px solid var(--hl);outline-offset:-2px}
-.rail button.active{background:#2a3632;border-left-color:var(--hl);color:#fff}
-
-.stage{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--stage)}
-.book-area{flex:1;display:flex;padding:clamp(12px,3vw,32px);min-height:0;overflow:auto;scrollbar-color:#556660 transparent}
-.book-holder{margin:auto;flex:none}
-#book{filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid #556660;background:rgba(32,42,39,.85);color:#fff;cursor:pointer;font-size:1.1rem;backdrop-filter:blur(6px);transition:background .2s}
-.arrow:hover{background:var(--hl);border-color:var(--hl)}
-#prev{left:12px}#next{right:12px}
-
-.page{background:#FBF8F1;overflow:hidden;container-type:inline-size}
-.page.hard{background:#F8F4EA}
-.page-inner{padding:6cqw;font-size:3.2cqw;line-height:1.4}
-.page-inner h1{font-size:9cqw;margin:0 0 .4em}
-.page-inner h3{font-size:6cqw}
-.page-inner .label{font-size:2.4cqw}
-.page-inner img{max-width:100%;height:auto}
-
-.scrubber{display:flex;gap:6px;padding:10px clamp(12px,3vw,24px);background:#202A27;border-top:1px solid #34423d;overflow-x:auto;align-items:center}
-.scrubber button{flex:none;min-width:44px;height:34px;border:1px solid #3f4e48;border-radius:6px;background:#2a3632;color:#e4dfd0;cursor:pointer;font-size:.75rem}
-.scrubber button:hover{border-color:var(--hl)}
-.scrubber button.active{background:var(--hl);border-color:var(--hl);color:#fff}
-.page-count{margin-left:auto;padding-left:12px;font-size:.78rem;color:#9DAD99;white-space:nowrap}
-
-/* ===== Responsive ===== */
-@media (max-width:900px){
-  .hero,.grid2,.toc{grid-template-columns:1fr !important}
-  .site-header .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
-  .nav{gap:16px;overflow-x:auto;width:100%;padding:4px 0}
-  .nav a{white-space:nowrap}
-  .hero>a{max-width:320px}
-  /* rail becomes an overlay drawer */
-  .viewer-body,body.rail-open .viewer-body{grid-template-columns:1fr}
-  .rail{position:fixed;top:0;bottom:0;left:0;width:min(280px,85vw);z-index:30;transform:translateX(-100%);transition:transform .25s ease;padding-top:56px;box-shadow:8px 0 30px rgba(0,0,0,.4)}
-  body.rail-open .rail{transform:none}
-  .rail button{width:100%}
-}
-@media (max-width:700px){
-  .arrow{width:38px;height:38px;opacity:.85}
-  #prev{left:6px}#next{right:6px}
-  .viewer-top{flex-wrap:wrap;padding:8px 12px}
-  .viewer-top .btn{padding:6px 10px;font-size:.8rem}
-  .tools .sep,#fullscreen{display:none}
-  input[type="search"]{min-width:0;width:100%;margin-left:0 !important}
-  .filters{margin-left:0}
-  .section{padding:36px 0}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none !important}}
-.rail-close{display:none !important}
-@media (max-width:900px){.rail-close{display:inline-block !important;width:auto !important;padding:0 !important;font-size:1.4rem !important;border:0 !important}.rail h2{display:flex;justify-content:space-between;align-items:center}}
-
-/* ===== Dark accent band: first section of every page uses the viewer's stage colour ===== */
-main>.section:first-child{background:var(--stage);color:#F1EBDD}
-main>.section:first-child .label{color:#9DAD99}
-main>.section:first-child .box,main>.section:first-child .card,main>.section:first-child .chip:not(.active){color:var(--ink)}
-main>.section:first-child .box .label,main>.section:first-child .card .label{color:var(--muted)}
+/* ===== 6. Dark top band (first section of every page) ===== */
+main>.section:first-child{background:var(--stage);color:var(--cream)}
+main>.section:first-child .label{color:var(--sage)}
+main>.section:first-child .box,
+main>.section:first-child .card,
+main>.section:first-child .chip:not(.active){color:var(--ink)}
+main>.section:first-child .box .label,
+main>.section:first-child .card .label{color:var(--muted)}
 main>.section:first-child .btn:not(.primary){background:transparent;border-color:#6b7d75;color:#fff}
 main>.section:first-child .btn:not(.primary):hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
-main>.section:first-child .btn.primary{background:var(--hl);border-color:var(--hl)}
+main>.section:first-child .btn.primary{background:var(--hl);border-color:var(--hl);color:var(--forest)}
 main>.section:first-child .btn.primary:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
-main>.section:first-child .chip.active{background:var(--hl);border-color:var(--hl)}
-main>.section:first-child .dark{background:#202A27;border:1px solid #34423d}
+main>.section:first-child .chip.active{background:var(--hl);border-color:var(--hl);color:var(--forest)}
+main>.section:first-child .dark{background:var(--forest);border:1px solid #34423d}
 main>.section:first-child .ph{border-color:#34423d}
-.site-footer{background:var(--dark)}
-.back{padding:8px 14px !important}
-@media (max-width:540px){.viewer-top .brand{display:none}}
-.viewer-top .left{display:flex;align-items:center;gap:14px;min-width:0}
-#book{width:100%;height:100%}
-.book-area{padding:24px 68px}
-@media (max-width:700px){.book-area{padding:12px}}
 
-/* ===== Palette 2: Museum Gallery (forest #202A27, cream #F1EBDD, sage #9DAD99, gold #C6A66B) ===== */
-.nav .btn,.btn.primary:hover,.arrow:hover,.scrubber button.active,.viewer-top .btn:hover:not(:disabled),.viewer-top .btn[aria-pressed="true"],
-main>.section:first-child .btn.primary,main>.section:first-child .chip.active{color:var(--forest)}
-.nav .btn:hover{background:var(--cream);border-color:var(--cream)}
-.rail button.active{border-left-color:var(--gold)}
-.rail button.active,.rail button:hover{color:var(--cream)}
-.site-header .brand,.site-header .nav a{color:var(--cream)}
-.site-header .nav .btn{color:var(--forest)}
-.label{color:#7a7f68}
-main>.section:first-child .label,.site-footer .label{color:var(--sage)}
-.chip:hover{background:var(--accent-soft);border-color:var(--sage)}
-.card,.box{border-color:var(--line)}
-a.card{border-top:3px solid var(--sage)}
-a.card:nth-child(even){border-top-color:var(--gold)}
-.dark{background:var(--forest)}
-.hero h1,.hero h2{letter-spacing:-.015em}
-body.viewer{background:#19211f}
-
-/* ===== Tighter spacing ===== */
-.section{padding:clamp(28px,5vw,64px) 0}
-.hero{gap:clamp(16px,4vw,40px)}
-.actions{margin:16px 0 0}
-.section p{margin:0 0 .8em}
-.section h2{margin-bottom:.4em}
-.section .cards{margin-top:16px}
-.filters{margin:12px 0 16px}
-@media (max-width:900px){
-  .hero>a,.hero>.ph{max-width:240px}
-  .hero>.ph.wide{max-width:none}
-}
-@media (max-width:700px){
-  .section{padding:24px 0}
-  .hero{gap:16px}
-  .site-footer{padding:24px 0}
-  h1{margin-bottom:.35em}
-}
-
-/* =====================================================
-   SHARED MAGAZINE TOUCHES
-   Applies to: contributors, home, magazine, references
-   ===================================================== */
-
-/* Masthead label: gold rule on top, spaced capitals */
+/* Shared magazine touches (contributors, home, magazine, references) */
 body:is(.contributors,.home,.magazine,.references) main > .section:first-child .wrap > .label:first-child,
 body:is(.contributors,.home,.magazine,.references) main > .section:first-child .hero > div > .label:first-child{
   display:inline-block;padding-top:12px;border-top:3px solid var(--gold);
   letter-spacing:.18em;font-weight:600;margin-bottom:14px;
 }
-
-/* Big page title */
 body:is(.contributors,.home,.magazine,.references) main > .section:first-child h1{
   font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:700;line-height:1.02;
   letter-spacing:-.02em;margin-bottom:.3em;
 }
-
-/* Small gold bar under section headings further down the page */
 body:is(.home,.magazine) .section:not(:first-child) h2::after{
   content:"";display:block;width:48px;height:3px;background:var(--gold);margin-top:10px;
 }
-
-/* Magazine cover look for the cover preview image */
 body:is(.home,.magazine) .hero > a{justify-self:center;width:100%;max-width:340px}
 body:is(.home,.magazine) .hero > a .ph{
   border:6px solid var(--cream);border-radius:3px;
   box-shadow:0 18px 40px rgba(0,0,0,.45);transition:transform .3s;
 }
 body:is(.home,.magazine) .hero > a:hover .ph{transform:rotate(-1.5deg) translateY(-4px)}
+body:is(.home,.magazine) main > .section:first-child .hero h2{font-style:italic;font-weight:400;color:var(--cream)}
 
-/* Subtitle in the hero looks like a standfirst */
-body:is(.home,.magazine) main > .section:first-child .hero h2{
-  font-style:italic;font-weight:400;color:var(--cream);
-}
-
-/* =====================================================
-   HOME (index.html)
-   ===================================================== */
+/* ===== 7. Page-specific ===== */
+/* HOME */
 body.home .cards{counter-reset:issue;gap:18px}
 body.home a.card{position:relative;counter-increment:issue}
 body.home a.card::before{
@@ -257,42 +150,43 @@ body.home a.card::before{
   font-weight:700;font-size:.8rem;padding:2px 10px;border-radius:99px;
 }
 body.home a.card strong{display:block;font-family:var(--font-display);font-size:1.1rem;line-height:1.25}
-body.home .hero > .ph.wide{border:1px solid var(--line);box-shadow:var(--shadow)}
+body.home .hero > .ph.wide{border:1px solid var(--line);box-shadow:var(--shadow-soft)}
 body.home .grid2 .box{border-left:3px solid var(--gold)}
 body.home .grid2 .box strong{font-family:var(--font-display);font-size:1.1rem;line-height:1.3}
+body.home main > .section:nth-child(3) .hero > div{border-left:3px solid var(--gold);padding-left:20px}
 
-/* =====================================================
-   MAGAZINE (magazine.html)
-   ===================================================== */
+/* MAGAZINE */
 body.magazine .hero > a{max-width:300px}
 body.magazine .hero p .chip{margin:0 6px 8px 0;font-size:.8rem;padding:4px 14px}
 body.magazine .toc{gap:14px}
-body.magazine .toc a{
-  border-left:3px solid var(--sage);font-family:var(--font-display);font-size:1.05rem;
-}
+body.magazine .toc a{border-left:3px solid var(--sage);font-family:var(--font-display);font-size:1.05rem}
 body.magazine .toc a:nth-child(even){border-left-color:var(--gold)}
 body.magazine .toc a:hover{transform:translateX(3px)}
 
-/* =====================================================
-   CONTRIBUTORS (contributors.html)
-   ===================================================== */
-body.contributors main h1 + p{
-  margin:0 0 24px;padding-bottom:20px;
-  border-bottom:3px double rgba(157,173,153,.55);opacity:.9;
-}
-
-/* Filters and search */
+/* CONTRIBUTORS */
+body.contributors main h1 + p{margin:0 0 24px;padding-bottom:20px;border-bottom:3px double rgba(157,173,153,.55);opacity:.9}
 body.contributors .filters{gap:10px;margin:8px 0 28px}
 body.contributors .filters > .label{margin:0 6px 0 0;letter-spacing:.14em;font-weight:600}
 body.contributors #filters .chip{padding:6px 16px;font-size:.82rem;letter-spacing:.02em}
 body.contributors #filters .chip:hover{transform:translateY(-1px)}
-body.contributors #search{
-  padding:10px 18px;border-color:#6b7d75;background:var(--surface);color:var(--ink);
-  transition:border-color .2s,box-shadow .2s;
-}
-body.contributors #search:focus{
-  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,166,107,.35);
-}
+body.contributors #search{padding:10px 18px;border-color:#6b7d75;background:var(--surface);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+body.contributors #search:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,166,107,.35)}
+
+body.contributors #people{counter-reset:person;gap:18px}
+body.contributors #people .card,
+body.contributors #people .person{position:relative;counter-increment:person;border-top:3px solid var(--sage);padding:24px 14px 20px;text-align:center;overflow:hidden}
+body.contributors #people .card:nth-child(even),
+body.contributors #people .person:nth-child(even){border-top-color:var(--gold)}
+body.contributors #people .card::before,
+body.contributors #people .person::before{content:counter(person,decimal-leading-zero);position:absolute;top:10px;right:12px;font-family:var(--font-display);font-size:.85rem;font-weight:700;color:var(--gold)}
+body.contributors #people .card:hover,
+body.contributors #people .person:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(32,42,39,.1),0 14px 30px rgba(32,42,39,.18)}
+body.contributors #people .ph{width:96px;aspect-ratio:1;border-radius:50%;margin:0 auto 14px;border:2px solid var(--gold)}
+body.contributors #people strong,
+body.contributors #people h3,
+body.contributors #people h4{display:block;font-family:var(--font-display);font-size:1.02rem;font-weight:700;line-height:1.25;text-wrap:balance}
+body.contributors #people .label{margin:6px 0 0;font-size:.7rem;letter-spacing:.14em}
+body.contributors #people .chips{margin-top:10px}
 
 /* One straight line on desktop: label | chips | search */
 @media (min-width:901px){
@@ -303,66 +197,16 @@ body.contributors #search:focus{
   body.contributors #search{flex:0 0 170px;width:170px;min-width:0;margin:0 !important;padding:9px 16px}
 }
 
-/* Contributor cards */
-body.contributors #people{counter-reset:person;gap:18px}
-body.contributors #people .card,
-body.contributors #people .person{
-  position:relative;counter-increment:person;border-top:3px solid var(--sage);
-  padding:24px 14px 20px;text-align:center;overflow:hidden;
-}
-body.contributors #people .card:nth-child(even),
-body.contributors #people .person:nth-child(even){border-top-color:var(--gold)}
-
-/* Issue-style number in the corner */
-body.contributors #people .card::before,
-body.contributors #people .person::before{
-  content:counter(person,decimal-leading-zero);position:absolute;top:10px;right:12px;
-  font-family:var(--font-display);font-size:.85rem;font-weight:700;color:var(--gold);
-}
-body.contributors #people .card:hover,
-body.contributors #people .person:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(32,42,39,.1),0 14px 30px rgba(32,42,39,.18)}
-
-/* Round photo with a thin gold ring */
-body.contributors #people .ph{
-  width:96px;aspect-ratio:1;border-radius:50%;margin:0 auto 14px;border:2px solid var(--gold);
-}
-
-/* Names look like a magazine byline */
-body.contributors #people strong,
-body.contributors #people h3,
-body.contributors #people h4{
-  display:block;font-family:var(--font-display);font-size:1.02rem;font-weight:700;
-  line-height:1.25;text-wrap:balance;
-}
-body.contributors #people .label{margin:6px 0 0;font-size:.7rem;letter-spacing:.14em}
-body.contributors #people .chips{margin-top:10px}
-
-@media (max-width:700px){
-  body.contributors #people{grid-template-columns:repeat(2,1fr);gap:12px}
-  body.contributors #people .ph{width:76px}
-  body.contributors #people strong,
-  body.contributors #people h3,
-  body.contributors #people h4{font-size:.92rem}
-}
-
-/* =====================================================
-   REFERENCES (references.html)
-   ===================================================== */
+/* REFERENCES */
 body.references #ref-filters{gap:10px;margin:8px 0 20px}
 body.references #ref-filters .label{margin:0 6px 0 0;letter-spacing:.14em;font-weight:600}
 body.references #ref-filters .chip{padding:6px 16px;font-size:.82rem}
 body.references #ref-filters .chip:hover{transform:translateY(-1px)}
-
-/* Reference list */
 body.references #refs{margin:0;padding-left:1.6em}
-body.references #refs li{
-  padding:12px 0 12px .4em;border-bottom:1px dotted var(--line);line-height:1.5;
-}
+body.references #refs li{padding:12px 0 12px .4em;border-bottom:1px dotted var(--line);line-height:1.5}
 body.references #refs li:last-child{border-bottom:0}
 body.references #refs li::marker{color:var(--gold);font-family:var(--font-display);font-weight:700}
 body.references #refs a{text-underline-offset:3px}
-
-/* Acknowledgements column */
 body.references #thanks .dark h2{font-style:italic;font-weight:400}
 body.references #thanks .box ul{list-style:none;margin:0;padding:0}
 body.references #thanks .box li{padding:8px 0;border-bottom:1px dotted var(--line)}
@@ -371,9 +215,46 @@ body.references #thanks .box li::before{content:"— ";color:var(--gold);font-we
 body.references #thanks .box:last-of-type{border-left:3px solid var(--gold)}
 body.references #thanks .box:last-of-type p:last-child{font-family:var(--font-display);font-style:italic}
 
-/* =====================================================
-   VIEWER (viewer.html): text margin inside the pages
-   ===================================================== */
+/* ===== 8. Viewer ===== */
+body.viewer{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:#19211f}
+.viewer-top{display:flex;justify-content:space-between;align-items:center;padding:10px clamp(12px,3vw,24px);background:var(--forest);color:var(--cream);border-bottom:1px solid #34423d;gap:12px}
+.viewer-top .left{display:flex;align-items:center;gap:14px;min-width:0}
+.viewer-top .brand{color:#fff;overflow:hidden;text-overflow:ellipsis}
+.viewer-top .tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.viewer-top .btn{background:#2a3632;border-color:#3f4e48;color:var(--cream);padding:8px 14px;font-size:.85rem}
+.viewer-top .btn:hover:not(:disabled),
+.viewer-top .btn[aria-pressed="true"]{background:var(--hl);border-color:var(--hl);color:var(--forest)}
+.tools .sep{width:1px;height:22px;background:#3f4e48;margin:0 4px}
+#zoomreset{min-width:62px;font-variant-numeric:tabular-nums}
+
+.viewer-body{flex:1;display:grid;grid-template-columns:0 1fr;min-height:0;transition:grid-template-columns .25s ease}
+body.rail-open .viewer-body{grid-template-columns:260px 1fr}
+.rail{background:var(--forest);border-right:1px solid #34423d;overflow:hidden auto;color:#e4dfd0}
+.rail h2{font-family:var(--font-body);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#a3ada4;margin:0;padding:18px 20px 8px;white-space:nowrap}
+.rail button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;gap:12px;width:260px;max-width:100%;padding:12px 20px;cursor:pointer;font-size:.92rem;border-left:3px solid transparent;color:#e4dfd0}
+.rail button span{color:#a3ada4;font-variant-numeric:tabular-nums;font-size:.8rem}
+.rail button:hover{background:#2a3632;color:var(--cream)}
+.rail button:focus-visible{outline:2px solid var(--hl);outline-offset:-2px}
+.rail button.active{background:#2a3632;border-left-color:var(--gold);color:var(--cream)}
+.rail-close{display:none !important}
+
+.stage{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--stage)}
+.book-area{flex:1;display:flex;padding:24px 68px;min-height:0;overflow:auto;scrollbar-color:#556660 transparent}
+.book-holder{margin:auto;flex:none}
+#book{width:100%;height:100%;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid #556660;background:rgba(32,42,39,.85);color:#fff;cursor:pointer;font-size:1.1rem;backdrop-filter:blur(6px);transition:background .2s}
+.arrow:hover{background:var(--hl);border-color:var(--hl);color:var(--forest)}
+#prev{left:12px}#next{right:12px}
+
+.page{background:#FBF8F1;overflow:hidden;container-type:inline-size}
+
+.scrubber{display:flex;gap:6px;padding:10px clamp(12px,3vw,24px);background:var(--forest);border-top:1px solid #34423d;overflow-x:auto;align-items:center}
+.scrubber button{flex:none;min-width:44px;height:34px;border:1px solid #3f4e48;border-radius:6px;background:#2a3632;color:#e4dfd0;cursor:pointer;font-size:.75rem}
+.scrubber button:hover{border-color:var(--hl)}
+.scrubber button.active{background:var(--hl);border-color:var(--hl);color:var(--forest)}
+.page-count{margin-left:auto;padding-left:12px;font-size:.78rem;color:var(--sage);white-space:nowrap}
+
+/* Text margin and defaults inside the flipbook pages */
 body.viewer #book .page,
 body.viewer #book .stf__item{
   box-sizing:border-box;
@@ -381,10 +262,7 @@ body.viewer #book .stf__item{
   overflow-x:hidden;overflow-y:auto;scrollbar-width:thin;
 }
 body.viewer #book .page p,
-body.viewer #book .page li{
-  font-size:clamp(.78rem,1.1vw,.95rem);line-height:1.45;margin:0 0 .6em;
-  max-width:100%;overflow-wrap:break-word;
-}
+body.viewer #book .page li{font-size:clamp(.78rem,1.1vw,.95rem);line-height:1.45;margin:0 0 .6em;max-width:100%;overflow-wrap:break-word}
 body.viewer #book .page h1{font-size:clamp(1.3rem,2.4vw,2rem);margin:0 0 .4em}
 body.viewer #book .page h2{font-size:clamp(1.05rem,1.8vw,1.5rem);margin:0 0 .4em}
 body.viewer #book .page h3{font-size:clamp(.9rem,1.4vw,1.15rem);margin:0 0 .4em}
@@ -395,6 +273,8 @@ body.viewer #book .page .label{font-size:.7rem;margin:0 0 .5em}
 body.viewer #book .page .ph{aspect-ratio:4/3;margin-bottom:.8em}
 body.viewer #book .page .ph.wide{aspect-ratio:16/9}
 body.viewer #book .page img{max-width:100%;height:auto;max-height:55%;object-fit:contain}
+
+/* Student artwork pages */
 body.viewer #book .page .behind-smile{color:var(--ink)}
 body.viewer #book .page .bs-kicker{margin:0 0 .25em;color:var(--gold);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
 body.viewer #book .page .bs-kicker span{padding:0 .3em;color:var(--muted)}
@@ -405,78 +285,148 @@ body.viewer #book .page .bs-art figcaption{margin-top:.35em;color:var(--muted);f
 body.viewer #book .page .bs-caption{padding:.55em .7em;border-left:3px solid var(--gold);background:rgba(232,222,201,.45)}
 body.viewer #book .page .bs-caption p{margin:0;font-size:clamp(.73rem,.95vw,.85rem);line-height:1.4;text-align:justify;hyphens:auto}
 body.viewer #book .page .bs-caption strong{font-family:var(--font-display);font-size:1.02em;letter-spacing:.035em;color:var(--forest)}
-body.viewer #book .page.full-bleed,
-body.viewer #book .stf__item.full-bleed,
-body.viewer #book .stf__item[data-density="hard"]{padding:0;overflow:hidden}
-@media (max-width:640px){
-  body.viewer #book .page,
-  body.viewer #book .stf__item{padding:12px 16px}
-}
 
-/* =====================================================
-   SOFT SHADOWS (all pages except the viewer)
-   Light depth on cards, boxes, rows, chips, buttons and placeholders.
-   ===================================================== */
-:root{
-  --shadow-soft:0 1px 2px rgba(32,42,39,.08),0 4px 12px rgba(32,42,39,.08);
-  --shadow-lift:0 2px 4px rgba(32,42,39,.10),0 12px 28px rgba(32,42,39,.16);
-  --shadow-tiny:0 1px 2px rgba(32,42,39,.14);
+/* ===== 9. Magazine pages inside the flipbook (Museum Gallery theme) ===== */
+.page .mag-page{
+  height:100%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:7cqw 7.5cqw 6cqw;color:#202A27;font-family:Georgia,"Times New Roman",serif;
+  scrollbar-width:thin;scrollbar-color:#9DAD99 #eee8da;
 }
+.page .mag-kicker{margin:0 0 3cqw;padding-top:2cqw;border-top:1px solid #C6A66B;color:#68776b;font:700 1cqw/1.3 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.page .mag-heading{font-size:8cqw;line-height:1.02;margin:0 0 2cqw;color:#202A27}
+.page .mag-deck{font-size:3.5cqw;line-height:1.35;color:#68776b;font-style:italic;margin:0 0 4cqw}
+.page .mag-page h3{font:700 3.8cqw/1.2 system-ui,sans-serif;color:#526B58;margin:4cqw 0 1.5cqw;letter-spacing:.02em}
+.page .mag-page p,
+.page .mag-page li{font-size:3.15cqw;line-height:1.48;margin:0 0 2.2cqw}
+.page .mag-page ul{padding-left:5cqw;margin:0 0 2cqw}
+.page .mag-page li{padding-left:.5cqw;margin-bottom:1.2cqw}
+.page .mag-page b{color:#26372f}
+.page .mag-page > p,
+.page .mag-page .history-scroll p,
+.page .mag-page .history-scroll li{text-align:justify;text-justify:inter-word}
+.page .intro-rule{height:3px;width:22%;background:#C6A66B;margin:0 0 4cqw}
+.page .intro-quote{margin:4cqw 0;padding:3cqw 4cqw;border-left:3px solid #C6A66B;background:#eee8da;color:#526B58;font-size:4.2cqw;font-style:italic}
+.page .mag-footnote{margin:1cqw 0 0 !important;padding-top:1cqw;border-top:1px solid #d9cfb8;color:#7a7f68;font:italic 3cqw/1.4 system-ui,sans-serif;text-align: justify;}
 
-/* Cards, boxes and contents rows */
+/* Table of contents page */
+/* Larger, full-page Table of Contents */
+.page .toc-page{min-height:100%;display:flex;flex-direction:column;padding:5cqw 7.5cqw 5cqw}
+.page .toc-page .bs-kicker{font-size:2.8cqw;margin-bottom:2cqw}
+.page .toc-page .mag-heading{font-size:9cqw;margin-bottom:3cqw}
+.page .toc-page .toc-list{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:1cqw}
+.page .toc-page .toc-list>div{display:flex;align-items:baseline;gap:1.8cqw;font-size:3.8cqw;line-height:1.35}
+.page .toc-page .toc-list span{font-size:3cqw;width:6cqw;flex:none;color:#9a8357}
+.page .toc-page .toc-list b{font-weight:600}
+.page .toc-page .toc-list strong{font:600 3.1cqw system-ui,sans-serif;white-space:nowrap}
+.page .toc-page .toc-list i{flex:1;border-bottom:1px dotted #b9ad96;min-width:3cqw}
+.page .toc-page .toc-list .toc-chapter{margin-top:1cqw;color:#526B58}
+.page .toc-page .toc-list .toc-sub{padding-left:7cqw;font-size:3.4cqw}
+.page .toc-page .mag-footnote{margin-top:2cqw!important}
+
+/* Art Through History pages */
+.page .history-page .history-scroll{padding-bottom:3cqw}
+.page .history-page .history-scroll > p > b{display:inline-block;color:#526B58;font-family:system-ui,sans-serif;font-size:4.5cqw;letter-spacing:.04em}
+.page .history-image-placeholder{min-height:25cqw;display:grid;place-content:center;text-align:center;background:linear-gradient(135deg,#e8e0cf,#d8d0bd);border:1px solid #d0c5ae;color:#526B58;font:700 3cqw system-ui,sans-serif;letter-spacing:.08em;margin:0 0 3cqw;padding:3cqw}
+.page .history-image-placeholder small{font:italic 2.4cqw Georgia,serif;letter-spacing:0;margin-top:1cqw}
+.page .history-image-placeholder img{display: block !important;width: 100% !important;max-width: none !important;height: auto !important;max-height: none !important;object-fit: contain;object-position: center;margin: 0 auto;}
+.page .history-image-placeholder figcaption{font:italic 2.5cqw Georgia,serif;color:#526B58;text-align:center;margin-top:1.5cqw}
+
+/* Original student artwork */
+.page .artwork-placeholder{margin:3cqw 0 4cqw;padding:2cqw;background:#eee8da;border:1px solid #d9cfb8;width:100%;box-sizing:border-box}
+.page .art-placeholder-frame{display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px dashed #9DAD99;background:#f8f4ea;box-sizing:border-box;margin:0 auto}
+.page .art-placeholder-frame.is-landscape{width:100%;aspect-ratio:4/3}
+.page .art-placeholder-frame.is-portrait{width:min(100%,70cqw);aspect-ratio:3/4}
+.page .art-placeholder-frame img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;flex:1 1 100%;object-fit:contain!important;object-position:center;margin:0!important}
+.page .art-placeholder-frame span{font:700 3.5cqw system-ui,sans-serif;letter-spacing:.12em}
+.page .art-placeholder-frame small{font:italic 2.8cqw Georgia,serif;margin-top:1cqw}
+.page .original-page h3{padding-bottom:1.5cqw;border-bottom:1px solid #C6A66B}
+
+/* Representative artists and artworks */
+.page .representative-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3cqw;margin:3cqw 0 4cqw}
+.page .artist-feature{min-width:0;background:#eee8da;border:1px solid #d9cfb8;padding:1.8cqw;box-sizing:border-box}
+.page .artist-image{width:100%;height:27cqw;min-height:70px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#ded7c7}
+.page .artist-image img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain;object-position:center;margin:0!important}
+.page .artist-caption{display:flex;flex-direction:column;gap:.8cqw;padding:1.8cqw .5cqw .5cqw;overflow-wrap:anywhere}
+.page .artist-caption b{font:700 4cqw/1.2 system-ui,sans-serif;color:#526B58}
+.page .artist-caption span{font:3.7cqw/1.3 Georgia,serif;color:#202A27}
+.page .artist-caption small{font:italic 3.3cqw/1.3 system-ui,sans-serif;color:#7a7f68}
+
+/* ===== 10. Soft shadows and motion (all pages except the viewer) ===== */
 body:not(.viewer) .card,
 body:not(.viewer) .box,
 body:not(.viewer) .toc a{box-shadow:var(--shadow-soft)}
-
-/* Placeholders / images */
 body:not(.viewer) .ph{box-shadow:var(--shadow-tiny)}
-
-/* Dark acknowledgements panel */
 body:not(.viewer) .dark{box-shadow:0 6px 18px rgba(0,0,0,.28)}
-
-/* Chips and buttons: tiny lift */
 body:not(.viewer) .chip,
 body:not(.viewer) .btn{box-shadow:var(--shadow-tiny)}
 body:not(.viewer) main>.section:first-child .btn:not(.primary){box-shadow:none}
-
-/* Cards that sit on the dark top band need a stronger shadow to show */
 body:not(.viewer) main>.section:first-child .card,
 body:not(.viewer) main>.section:first-child .box{box-shadow:0 4px 16px rgba(0,0,0,.3)}
-
-/* Hover: a bit more lift */
 body:not(.viewer) a.card:hover,
 body:not(.viewer) .toc a:hover{box-shadow:var(--shadow-lift)}
 body:not(.viewer) .btn:hover,
 body:not(.viewer) .chip:hover{box-shadow:0 2px 6px rgba(32,42,39,.22)}
+body:not(.viewer) .btn.primary:hover{transform:translateY(-1px)}
 
-/* =====================================================
-   EXTRA POLISH: fade-in, footer rule, featured accent
-   ===================================================== */
-
-/* Sections fade up gently on page load */
-@keyframes rise{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:none}
-}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 body:not(.viewer) main > .section{animation:rise .6s ease both}
 body:not(.viewer) main > .section:nth-child(2){animation-delay:.1s}
 body:not(.viewer) main > .section:nth-child(3){animation-delay:.2s}
 
-/* Thin gold rule on top of the footer */
-.site-footer{border-top:3px solid var(--gold)}
-
-/* Nav links: gold underline grows on hover */
-.nav a:not(.btn):hover{border-color:var(--gold)}
-
-/* Featured "Then & Now" block on the home page */
-body.home main > .section:nth-child(3) .hero > div{
-  border-left:3px solid var(--gold);padding-left:20px;
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+  body:not(.viewer) main > .section{animation:none}
 }
 
-/* Buttons feel more tactile */
-body:not(.viewer) .btn.primary:hover{transform:translateY(-1px)}
+/* ===== 11. Responsive ===== */
+@media (max-width:900px){
+  .hero,.grid2,.toc{grid-template-columns:1fr !important}
+  .hero>a,.hero>.ph{max-width:240px}
+  .hero>.ph.wide{max-width:none}
+  .site-header .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+  .nav{gap:16px;overflow-x:auto;width:100%;padding:4px 0}
+  .nav a{white-space:nowrap}
+  /* viewer: contents rail becomes an overlay drawer */
+  .viewer-body,body.rail-open .viewer-body{grid-template-columns:1fr}
+  .rail{position:fixed;top:0;bottom:0;left:0;width:min(280px,85vw);z-index:30;transform:translateX(-100%);transition:transform .25s ease;box-shadow:8px 0 30px rgba(0,0,0,.4)}
+  body.rail-open .rail{transform:none}
+  .rail button{width:100%}
+  .rail h2{display:flex;justify-content:space-between;align-items:center}
+  .rail-close{display:inline-block !important;width:auto !important;padding:0 !important;font-size:1.4rem !important;border:0 !important}
+}
+@media (max-width:700px){
+  .section{padding:24px 0}
+  .hero{gap:16px}
+  h1{margin-bottom:.35em}
+  .site-footer{padding:24px 0}
+  input[type="search"]{min-width:0;width:100%;margin-left:0 !important}
+  .filters{margin-left:0}
+  .arrow{width:38px;height:38px;opacity:.85}
+  #prev{left:6px}#next{right:6px}
+  .book-area{padding:12px}
+  .viewer-top{flex-wrap:wrap;padding:8px 12px}
+  .viewer-top .btn{padding:6px 10px;font-size:.8rem}
+  .tools .sep,#fullscreen{display:none}
+  body.contributors #people{grid-template-columns:repeat(2,1fr);gap:12px}
+  body.contributors #people .ph{width:76px}
+  body.contributors #people strong,
+  body.contributors #people h3,
+  body.contributors #people h4{font-size:.92rem}
+}
+@media (max-width:640px){
+  body.viewer #book .page,
+  body.viewer #book .stf__item{padding:12px 16px}
+}
+@media (max-width:540px){
+  .viewer-top .brand{display:none}
+}
 
-/* Respect reduced-motion settings */
-@media (prefers-reduced-motion:reduce){
-  body:not(.viewer) main > .section{animation:none}
+@media(max-width:480px){
+.page .representative-gallery{gap:2cqw}
+.page .artist-feature{padding:1.5cqw}
+.page .artist-image{height:30cqw;min-height:55px}
+.page .artist-caption{gap:1cqw}
+.page .artist-caption b{font-size:3.7cqw}
+.page .artist-caption span{font-size:3.4cqw}
+.page .artist-caption small{font-size:3cqw}
 }
