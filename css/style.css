@@ -440,3 +440,17 @@ body:not(.viewer) main > .section:nth-child(3){animation-delay:.2s}
 .toc .ph {
     display: none !important;
 }
+
+/* Scrollable flipbook on mobile and tablet only */
+@media (max-width: 900px) {
+  body.viewer .book-area {
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    overscroll-behavior: contain;
+  }
+
+  body.viewer .book-holder {
+    flex-shrink: 0;
+  }
+}
