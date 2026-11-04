@@ -39,6 +39,19 @@ const PAGE_HTML = {
             </div>
         </article>
     `,
+    12: `
+        <article class="behind-smile">
+            <p class="bs-kicker">Contemporary Art <span>·</span> 12</p>
+            <h3 class="bs-title">Rooted, Yet Connected</h3>
+            <figure class="bs-art">
+                <img src="images/contemporary/contemporary_9.jpg" alt="Filipino woman in traditional clothing holding a smartphone in a rice field">
+                <figcaption>Tradition · Identity · Progress</figcaption>
+            </figure>
+            <div class="bs-caption">
+                <p>This artwork shows a Filipino in a salakot and patadyong standing in a rice field, holding a smartphone, with a coconut tree, a nipa hut, and a distant city skyline behind her. Inspired by Fernando Amorsolo’s rural landscapes, we borrowed his warm golden palette and glowing sun, then reinterpreted his timeless countryside by adding a glowing phone and making her the center of the scene. The phone stands out against the warm colors to show technology entering traditional spaces. It represents Filipino identity in an age of globalization, where we stay tied to our land while living in a connected world.</p>
+            </div>
+        </article>
+    `,
     13: `
         <article class="behind-smile">
             <p class="bs-kicker">Contemporary Art <span>·</span> 13</p>
