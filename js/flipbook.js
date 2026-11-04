@@ -829,6 +829,51 @@ const PAGE_HTML = {
             </div>
         </article>
     `,
+    18: `
+        <article class="mag-page reflection-page">
+            <p class="bs-kicker">Looking Back <span>·</span> 18</p>
+            <p class="mag-kicker"></p>
+            <h2 class="mag-heading">Reflection</h2>
+            <p class="mag-deck">Art connects what people valued then with what matters to us now.</p>
+
+            <div class="intro-rule"></div>
+
+            <p>
+                Creating this magazine changed the way we look at art. We began
+                by seeing art history as a series of periods and famous works.
+                As we explored Greek and Roman ideals, Philippine art, and later
+                movements, we saw how each artwork carries traces of its time:
+                its beliefs, daily life, social changes, and ideas about identity.
+            </p>
+
+            <p>
+                That connection became clearer as we made our own contemporary
+                responses. In artworks about hidden emotions, student life,
+                technology and tradition, and the meaning of life, we brought
+                historical ideas into subjects we recognize today. We learned
+                that influence does not mean copying. We can study how artists
+                make choices, then reshape those ideas through our own experiences.
+            </p>
+
+            <p>
+                Working together also showed us that art can hold many
+                interpretations. Listening to one another helped us notice
+                details and meanings we might have missed on our own. Researching,
+                discussing, and revising our work took patience, but each step
+                helped us express our ideas more clearly.
+            </p>
+
+            <p>
+                We now see art as a conversation across time. It can preserve
+                memory, question what we take for granted, and express ideas
+                that are difficult to put into words. As we continue learning,
+                we hope to look more carefully at the images around us and create
+                with respect for the histories and people that shape them.
+            </p>
+
+            <div class="mag-footnote">The past gives us a starting point; our own experiences carry the conversation forward.</div>
+        </article>
+    `,
 };
 
 const sectionOf = (p) => SECTIONS.find((s) => p >= s.start && p <= s.end);
